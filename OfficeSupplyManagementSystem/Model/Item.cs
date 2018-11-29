@@ -8,6 +8,7 @@ namespace OfficeSupplyManagementSystem.Model
 {
     class Item
     {
+        //private properties
         private string _itemName;
         private int _itemNumber;
         private string _itemCategory;
@@ -16,7 +17,8 @@ namespace OfficeSupplyManagementSystem.Model
         private int _itemPrice;
         private string _itemInfo;
 
-        public string ItemName { get => _itemName; set => _itemName = value; }
+        //public properties (full property)
+        public string ItemName { get => _itemName; set => _itemName = value; } // => lambda expression
         public int ItemNumber { get => _itemNumber; set => _itemNumber = value; }
         public string ItemCategory { get => _itemCategory; set => _itemCategory = value; }
         public int ItemAmount { get => _itemAmount; set => _itemAmount = value; }
@@ -24,11 +26,13 @@ namespace OfficeSupplyManagementSystem.Model
         public int ItemPrice { get => _itemPrice; set => _itemPrice = value; }
         public string ItemInfo { get => _itemInfo; set => _itemInfo = value; }
 
+        //default or empty constructor (takes 0 parameters)
         public Item()
         {
             
         }
 
+        //constructor (takes 7 parameters of varying types)
         public Item(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
             _itemName = itemName;

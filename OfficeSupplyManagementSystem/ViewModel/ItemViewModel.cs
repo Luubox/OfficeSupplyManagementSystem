@@ -10,15 +10,20 @@ using OfficeSupplyManagementSystem.Model;
 
 namespace OfficeSupplyManagementSystem.ViewModel
 {
+    //class implements INotifyPropertyChanged so as to allow the GUI to update based on changes
     class ItemViewModel : INotifyPropertyChanged 
     {
+        //Implements ItemCatalog class
         public ItemCatalog ItemCatalog { get; set; }
 
+        //Constructor that takes 0 parameters
         public ItemViewModel()
         {
+            //Initiates the ItemCatalog by accessing the public Instance property (singleton instance)
             ItemCatalog = ItemCatalog.Instance;
         }
 
+        //default implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
