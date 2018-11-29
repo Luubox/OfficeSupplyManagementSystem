@@ -5,7 +5,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using OfficeSupplyManagementSystem.Annotations;
+using OfficeSupplyManagementSystem.Handler;
 using OfficeSupplyManagementSystem.Model;
 
 namespace OfficeSupplyManagementSystem.ViewModel
@@ -16,11 +19,22 @@ namespace OfficeSupplyManagementSystem.ViewModel
         //Implements ItemCatalog class
         public ItemCatalog ItemCatalog { get; set; }
 
+        public ItemHandler ItemHandler { get; set; }
+
+        public ICommand CreateItemCommand { get; set; }
+        public ICommand DeleteItemCommand { get; set; }
+        public ICommand EditItemCommand { get; set; }
+
+
         //Constructor that takes 0 parameters
         public ItemViewModel()
         {
             //Initiates the ItemCatalog by accessing the public Instance property (singleton instance)
             ItemCatalog = ItemCatalog.Instance;
+            ItemHandler = new ItemHandler(this);
+            CreateItemCommand = new RelayCommand(ItemHandler.CreateItem);
+            DeleteItemCommand = new RelayCommand(ItemHandler.DeleteItem);
+            EditItemCommand = new RelayCommand(ItemHandler.EditItem);
         }
 
         //default implementation of INotifyPropertyChanged

@@ -5,10 +5,31 @@
     xmlns:local="using:OfficeSupplyManagementSystem.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.DataContext>
+        <viewModel:ItemViewModel></viewModel:ItemViewModel>
+    </Page.DataContext>
     <Grid>
-
+        <ListView ItemsSource="{Binding ItemCatalog.ItemList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding ItemCategory, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding ItemName, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding ItemNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding ItemInfo, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding ItemPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding ItemAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Ny" Command="{Binding CreateItemCommand}"/>
+            <Button Content="Ret" Command="{Binding EditItemCommand}"/>
+            <Button Content="Slet" Command="{Binding DeleteItemCommand}"/>
+        </StackPanel>
     </Grid>
 </Page>
