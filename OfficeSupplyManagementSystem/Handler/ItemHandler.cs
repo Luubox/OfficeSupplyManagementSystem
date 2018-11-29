@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OfficeSupplyManagementSystem.Model;
 using OfficeSupplyManagementSystem.ViewModel;
 
 namespace OfficeSupplyManagementSystem.Handler
@@ -19,17 +20,19 @@ namespace OfficeSupplyManagementSystem.Handler
 
         public void CreateItem()
         {
-            Debug.WriteLine("Det virker!!!");
+            ItemViewModel.ItemCatalog.ItemList.Add(ItemViewModel.NewItem);
         }
 
         public void DeleteItem()
         {
-
+            ItemViewModel.ItemCatalog.ItemList.RemoveAt(ItemViewModel.TargetIndex);
+            // TODO Opret nyt Arkiv-katalog
         }
 
         public void EditItem()
         {
-
+            //ItemViewModel.ItemCatalog.ItemList.Insert(ItemViewModel.TargetIndex, ItemViewModel.TargetItem);
+            ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
         }
     }
 }

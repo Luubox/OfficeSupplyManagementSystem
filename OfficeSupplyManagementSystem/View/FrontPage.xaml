@@ -12,24 +12,51 @@
         <viewModel:ItemViewModel></viewModel:ItemViewModel>
     </Page.DataContext>
     <Grid>
-        <ListView ItemsSource="{Binding ItemCatalog.ItemList}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
+
+        <Pivot>
+            <PivotItem Header="Varer">
+                <StackPanel>
+                    <ListView ItemsSource="{Binding ItemCatalog.ItemList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ItemCategory, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding ItemInfo, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding ItemPrice, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    <TextBlock Text="{Binding ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding ItemCategory, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBlock Text="{Binding ItemName, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBlock Text="{Binding ItemNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBlock Text="{Binding ItemInfo, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBlock Text="{Binding ItemPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBlock Text="{Binding ItemAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <Button Content="Slet" Command="{Binding DeleteItemCommand}" />
                     </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="Ny" Command="{Binding CreateItemCommand}"/>
-            <Button Content="Ret" Command="{Binding EditItemCommand}"/>
-            <Button Content="Slet" Command="{Binding DeleteItemCommand}"/>
-        </StackPanel>
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Ny vare">
+                <StackPanel Orientation="Vertical">
+                    <TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding NewItem.ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding NewItem.ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding NewItem.ItemInfo, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding NewItem.ItemPrice, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding NewItem.ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <Button Content="Ny" Command="{Binding CreateItemCommand}" />
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Ret vare">
+                <StackPanel Orientation="Vertical">
+                    <TextBox Text="{Binding TargetItem.ItemCategory, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding TargetItem.ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding TargetItem.ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding TargetItem.ItemInfo, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding TargetItem.ItemPrice, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <TextBox Text="{Binding TargetItem.ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
+                    <Button Content="Ret" Command="{Binding EditItemCommand}" />
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>

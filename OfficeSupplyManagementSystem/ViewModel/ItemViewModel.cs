@@ -24,6 +24,29 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateItemCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
+        public int TargetIndex { get; set; }
+        private Item _newItem;
+        public Item NewItem
+        {
+            get { return _newItem; }
+            set
+            {
+                _newItem = value;
+                OnPropertyChanged();
+            }
+        }
+        private Item _targetItem;
+
+        public Item TargetItem
+        {
+            get { return _targetItem; }
+            set
+            {
+                _targetItem = value;
+                OnPropertyChanged();
+            }
+        }
+
 
 
         //Constructor that takes 0 parameters
@@ -35,7 +58,10 @@ namespace OfficeSupplyManagementSystem.ViewModel
             CreateItemCommand = new RelayCommand(ItemHandler.CreateItem);
             DeleteItemCommand = new RelayCommand(ItemHandler.DeleteItem);
             EditItemCommand = new RelayCommand(ItemHandler.EditItem);
+            NewItem = new Item();
+            TargetItem = new Item();
         }
+
 
         //default implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
