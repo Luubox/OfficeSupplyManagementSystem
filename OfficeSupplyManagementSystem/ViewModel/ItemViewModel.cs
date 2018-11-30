@@ -14,7 +14,7 @@ using OfficeSupplyManagementSystem.Model;
 namespace OfficeSupplyManagementSystem.ViewModel
 {
     //class implements INotifyPropertyChanged so as to allow the GUI to update based on changes
-    class ItemViewModel : INotifyPropertyChanged 
+    class ItemViewModel : INotifyPropertyChanged
     {
         //Implements ItemCatalog class
         public ItemCatalog ItemCatalog { get; set; }
@@ -25,6 +25,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
         public int TargetIndex { get; set; }
+
         private Item _newItem;
         public Item NewItem
         {
@@ -35,8 +36,8 @@ namespace OfficeSupplyManagementSystem.ViewModel
                 OnPropertyChanged();
             }
         }
-        private Item _targetItem;
 
+        private Item _targetItem;
         public Item TargetItem
         {
             get { return _targetItem; }
@@ -47,21 +48,20 @@ namespace OfficeSupplyManagementSystem.ViewModel
             }
         }
 
-
-
         //Constructor that takes 0 parameters
         public ItemViewModel()
         {
             //Initiates the ItemCatalog by accessing the public Instance property (singleton instance)
             ItemCatalog = ItemCatalog.Instance;
             ItemHandler = new ItemHandler(this);
+
             CreateItemCommand = new RelayCommand(ItemHandler.CreateItem);
             DeleteItemCommand = new RelayCommand(ItemHandler.DeleteItem);
             EditItemCommand = new RelayCommand(ItemHandler.EditItem);
+
             NewItem = new Item();
             TargetItem = new Item();
         }
-
 
         //default implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

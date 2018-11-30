@@ -29,7 +29,7 @@ namespace OfficeSupplyManagementSystem.Model
         //default or empty constructor (takes 0 parameters)
         public Item()
         {
-            
+
         }
 
         //constructor (takes 7 parameters of varying types)
