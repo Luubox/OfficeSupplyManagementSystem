@@ -18,12 +18,12 @@ namespace OfficeSupplyManagementSystem.ViewModel
     {
         //Implements ItemCatalog class
         public ItemCatalog ItemCatalog { get; set; }
-
         public ItemHandler ItemHandler { get; set; }
 
         public ICommand CreateItemCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
+
         public int TargetIndex { get; set; }
 
         private Item _newItem;
