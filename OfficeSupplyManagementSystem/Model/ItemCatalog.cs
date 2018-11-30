@@ -27,12 +27,16 @@ namespace OfficeSupplyManagementSystem.Model
         {
             //initiates the ObservableCollection of items
             ItemList = new ObservableCollection<Item>();
-            LoadItemsAsync();
+            //LoadItemsAsync();
         }
-
+        /// <summary>
+        /// johan != vores mand
+        /// </summary>
         public async void LoadItemsAsync()
         {
-            var items = await PersistencyService.LoadCollectionFromJsonAsync();
+            
+
+            var items = await PersistencyService.LoadCollectionFromJsonAsync<Item>();
             if (items != null)
             {
                 foreach (var item in items)
@@ -54,7 +58,9 @@ namespace OfficeSupplyManagementSystem.Model
         //Add method that corresponds to the item class constructor (names dont have to match, only for clarity) 
         public void Add(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
-            ItemList.Add(new Item(itemName, itemNumber, itemCategory, itemAmount, itemStatus, itemPrice, itemInfo));
+            Item newItem = new Item(itemName, itemNumber, itemCategory, itemAmount, itemStatus, itemPrice, itemInfo);
+            ItemList.Add(newItem);
+            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList);
         }
     }
 }
