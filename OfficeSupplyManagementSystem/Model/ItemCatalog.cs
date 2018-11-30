@@ -32,8 +32,6 @@ namespace OfficeSupplyManagementSystem.Model
         
         public async void LoadItemsAsync()
         {
-
-
             var items = await PersistencyService.LoadCollectionFromJsonAsync<Item>();
             if (items.Count != 0)
             {
@@ -46,11 +44,11 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
                 //adds default items to collection for testing purposes
-                ItemList.Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
-                ItemList.Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
-                ItemList.Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
-                ItemList.Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
-                ItemList.Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+                ItemList.Add(new Item("Bleer", 998453, "Sanitation", 10000, true, 10, "Name says it all"));
+                ItemList.Add(new Item("Hansker", 994339, "Arbejdstøj", 10000, true, 12, "Name says it all"));
+                ItemList.Add(new Item("Skeer", 993231, "Cutlery", 10000, true, 110, "Name says it all"));
+                ItemList.Add(new Item("Arbejdsbukser", 998143, "Arbejdstøj", 10000, true, 15, "Name says it all"));
+                ItemList.Add(new Item("Printer Blæk", 998888, "Printer", 10000, true, 1055, "Name says it all"));
 
                 SaveFile();
             }
