@@ -27,17 +27,18 @@ namespace OfficeSupplyManagementSystem.Model
         {
             //initiates the ObservableCollection of items
             ItemList = new ObservableCollection<Item>();
-            //LoadItemsAsync();
+            LoadItemsAsync();
         }
+
         /// <summary>
         /// johan != vores mand
         /// </summary>
         public async void LoadItemsAsync()
         {
-            
+
 
             var items = await PersistencyService.LoadCollectionFromJsonAsync<Item>();
-            if (items != null)
+            if (items.Count != 0)
             {
                 foreach (var item in items)
                 {
@@ -47,14 +48,19 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
                 //adds default items to collection for testing purposes
-                ItemList.Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
-                ItemList.Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
-                ItemList.Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
-                ItemList.Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
-                ItemList.Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+                Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
+                //Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
+                //Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
+                //Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
+                //Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
             }
         }
 
+        public void Add(Item newItem)
+        {
+            ItemList.Add(newItem);
+            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList);
+        }
         //Add method that corresponds to the item class constructor (names dont have to match, only for clarity) 
         public void Add(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
