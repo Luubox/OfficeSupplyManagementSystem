@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls.Primitives;
+using OfficeSupplyManagementSystem.Persistency;
 
 namespace OfficeSupplyManagementSystem.Model
 {
@@ -25,19 +27,40 @@ namespace OfficeSupplyManagementSystem.Model
         {
             //initiates the ObservableCollection of items
             ItemList = new ObservableCollection<Item>();
+            //LoadItemsAsync();
+        }
+        /// <summary>
+        /// johan != vores mand
+        /// </summary>
+        public async void LoadItemsAsync()
+        {
+            
 
-            //adds default items to collection for testing purposes
-            ItemList.Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
-            ItemList.Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
-            ItemList.Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
-            ItemList.Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
-            ItemList.Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+            var items = await PersistencyService.LoadCollectionFromJsonAsync<Item>();
+            if (items != null)
+            {
+                foreach (var item in items)
+                {
+                    ItemList.Add(item);
+                }
+            }
+            else
+            {
+                //adds default items to collection for testing purposes
+                ItemList.Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
+                ItemList.Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
+                ItemList.Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
+                ItemList.Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
+                ItemList.Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+            }
         }
 
         //Add method that corresponds to the item class constructor (names dont have to match, only for clarity) 
         public void Add(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
-            ItemList.Add(new Item(itemName, itemNumber, itemCategory, itemAmount, itemStatus, itemPrice, itemInfo));
+            Item newItem = new Item(itemName, itemNumber, itemCategory, itemAmount, itemStatus, itemPrice, itemInfo);
+            ItemList.Add(newItem);
+            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList);
         }
     }
 }
