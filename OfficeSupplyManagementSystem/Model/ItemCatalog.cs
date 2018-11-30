@@ -29,10 +29,7 @@ namespace OfficeSupplyManagementSystem.Model
             ItemList = new ObservableCollection<Item>();
             LoadItemsAsync();
         }
-
-        /// <summary>
-        /// johan != vores mand
-        /// </summary>
+        
         public async void LoadItemsAsync()
         {
 
@@ -44,23 +41,26 @@ namespace OfficeSupplyManagementSystem.Model
                 {
                     ItemList.Add(item);
                 }
+                SaveFile();
             }
             else
             {
                 //adds default items to collection for testing purposes
-                Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
-                //Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
-                //Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
-                //Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
-                //Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+                ItemList.Add(new Item("Bleer", 01, "Sanitation", 10000, true, 10, "Name says it all"));
+                ItemList.Add(new Item("Hansker", 02, "Arbejdstøj", 10000, true, 12, "Name says it all"));
+                ItemList.Add(new Item("Skeer", 03, "Cutlery", 10000, true, 110, "Name says it all"));
+                ItemList.Add(new Item("Arbejdsbukser", 04, "Arbejdstøj", 10000, true, 15, "Name says it all"));
+                ItemList.Add(new Item("Printer Blæk", 05, "Printer", 10000, true, 1055, "Name says it all"));
+
+                SaveFile();
             }
         }
 
-        public void Add(Item newItem)
+        public void SaveFile()
         {
-            ItemList.Add(newItem);
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList);
         }
+
         //Add method that corresponds to the item class constructor (names dont have to match, only for clarity) 
         public void Add(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {

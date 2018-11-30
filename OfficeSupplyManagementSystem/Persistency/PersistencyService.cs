@@ -32,8 +32,6 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns></returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
-            //Type tmp = typeof(T);
-
             string fileName = typeof(T).ToString();
             List<T> collectionList = new List<T>();
 
