@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using OfficeSupplyManagementSystem.Common;
 
@@ -16,7 +17,7 @@ namespace OfficeSupplyManagementSystem.Model
         private string _itemCategory;
         private int _itemAmount;
         private bool _itemStatus;
-        private double _itemPrice;
+        private decimal _itemPrice;
         private string _itemInfo;
 
         private ObservableCollection<string> _categoryList = new ObservableCollection<string>()
@@ -65,7 +66,6 @@ namespace OfficeSupplyManagementSystem.Model
 
         //public properties (full property)
         public string ItemName { get => _itemName; set => _itemName = value; } // => lambda expression
-
         public string ItemNumber
         {
             get
@@ -76,7 +76,6 @@ namespace OfficeSupplyManagementSystem.Model
             set => _itemNumber = Convert.ToInt32(value);
         }
         public string ItemCategory { get => _itemCategory; set => _itemCategory = value; }
-
         public string ItemAmount
         {
             get
@@ -87,22 +86,24 @@ namespace OfficeSupplyManagementSystem.Model
             set => _itemAmount = Convert.ToInt32(value);
         }
         public bool ItemStatus { get => _itemStatus; set => _itemStatus = value; }
-
         public string ItemPrice
         {
             get
             {
-                if (_itemPrice != 0.0d) return _itemPrice.ToString();
+                if (_itemPrice != 0) return _itemPrice.ToString("#.00");
                 else return string.Empty;
+                //TODO: ToString(c) fix ?
             }
             set
             {
                 if (value.Contains(',')) value = value.Replace(',', '.');
-                _itemPrice = StringToDoubleConverter.ConvertToDouble(value);
+                //_itemPrice = (decimal)Converter.ConvertStringToDouble(value);
+                _itemPrice = decimal.Round(Convert.ToDecimal(value), 2, MidpointRounding.AwayFromZero);
+                //TODO: set currentculture how the fuck
             }
         }
         public string ItemInfo { get => _itemInfo; set => _itemInfo = value; }
-        public ObservableCollection<string> CategoryList{ get => _categoryList; }
+        public ObservableCollection<string> CategoryList { get => _categoryList; }
 
         //default or empty constructor (takes 0 parameters)
         public Item()

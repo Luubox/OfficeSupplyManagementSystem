@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace OfficeSupplyManagementSystem.Common
 {
-    class StringToDoubleConverter
+    class Converter
     {
-        public static double ConvertToDouble(string value)
+        public static double ConvertStringToDouble(string value)
         {
             if (value == null)
             {
