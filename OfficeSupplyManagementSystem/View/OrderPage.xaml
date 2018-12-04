@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="OfficeSupplyManagementSystem.View.OrderPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OfficeSupplyManagementSystem.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Page.DataContext>
+        <viewModel:OrderViewModel></viewModel:OrderViewModel>
+</Page.DataContext>
+    <Grid>
+
+           <Pivot>
+               <PivotItem Header="Ordrekatalog">
+                   <StackPanel>
+                       <ListView ItemsSource="{Binding OrderCatalog.OrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                        <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                       </ListView>
+                       <StackPanel Orientation="Horizontal">
+                           <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
+                       </StackPanel>
+                   </StackPanel>
+               </PivotItem>
+
+           </Pivot>
+
+    </Grid>
+</Page>
