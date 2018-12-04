@@ -32,7 +32,7 @@ namespace OfficeSupplyManagementSystem.Model
 
         }
 
-        //constructor (takes 7 parameters of varying types)
+        //constructor (takes 6 parameters of varying types)
         public Item(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
             _itemName = itemName;
