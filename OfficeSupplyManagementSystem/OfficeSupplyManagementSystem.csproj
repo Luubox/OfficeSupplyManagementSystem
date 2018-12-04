@@ -117,8 +117,12 @@
     <Compile Include="ViewModel\AccountViewModel.cs" />
     <Compile Include="ViewModel\ItemViewModel.cs" />
     <Compile Include="ViewModel\ResupplyOrderViewModel.cs" />
+    <Compile Include="ViewModel\FrontPageViewModel.cs" />
     <Compile Include="View\FrontPage.xaml.cs">
       <DependentUpon>FrontPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ItemPage.xaml.cs">
+      <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ResupplyOrderPage.xaml.cs">
       <DependentUpon>ResupplyOrderPage.xaml</DependentUpon>
@@ -164,6 +168,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="View\FrontPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
