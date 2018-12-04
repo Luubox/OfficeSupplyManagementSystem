@@ -34,5 +34,9 @@ namespace OfficeSupplyManagementSystem.Handler
             //ItemViewModel.ItemCatalog.ItemList.Insert(ItemViewModel.TargetIndex, ItemViewModel.TargetItem);
             ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
         }
+
+        public void SortItem()
+        {
+        }
     }
 }
