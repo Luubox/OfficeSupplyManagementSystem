@@ -98,6 +98,7 @@
     <Compile Include="Handler\ItemHandler.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\ItemCatalog.cs" />
+    <Compile Include="Model\ResupplyOrder.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
