@@ -11,10 +11,12 @@ namespace OfficeSupplyManagementSystem.Persistency
     class PersistencyService
     {
         /// <summary>
-        /// Converts collection to string via JsonConverter
-        /// Calls SerializeCollectionFileAsync asynchronous
+        /// Converts the input type to a string filename.
+        /// Converts the collection to a string using Json.Convert
+        /// Calls SerializeCollectionFileAsync on the collection string and filename string
         /// </summary>
-        /// <param name="collectionInput">Collection of any type </param>
+        /// <typeparam name="T">Denotes which type the collection consist of</typeparam>
+        /// <param name="collectionInput">The collection in question</param>
         public static async void SaveCollectionAsJsonAsync<T>(T collectionInput)
         {
             string fileName = collectionInput.GetType().ToString();
@@ -24,12 +26,12 @@ namespace OfficeSupplyManagementSystem.Persistency
         }
 
         /// <summary>
-        /// Creates a list of type objects
-        /// Calls asynchronously DeSerializeCollectionFileAsync on localFile
-        /// Fills list with type objects and returns the type
+        /// Converts the input type to a string filename.
+        /// Calls DeSerializeCollectionFileAsync on the input type as a string filename.
+        /// Converts the result of the method to a list of input type objects, and returns said list.
         /// </summary>
-        /// <param name="typeInput">The type of the target collection</param>
-        /// <returns></returns>
+        /// <typeparam name="T">Denotes the type of the desired collection</typeparam>
+        /// <returns>Returns a list of input type objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
             string fileName = typeof(T).ToString();
@@ -44,12 +46,14 @@ namespace OfficeSupplyManagementSystem.Persistency
             }
             return collectionList;
         }
-
+        
         /// <summary>
-        /// Writes the string variable to a file, creates a new file if none exists
+        /// Locates localFolder and the localFile based of the string input.
+        /// If the target localFile exist, overwrites with the new data,
+        /// else creates a new localFile with the string input name.
         /// </summary>
-        /// <param name="collectionString">List of type objects converted to string</param>
-        /// <param name="fileName">Name of the local file</param>
+        /// <param name="collectionString">The collection converted to string via JsonConvert</param>
+        /// <param name="fileName">The desired filename string</param>
         private static async void SerializeCollectionFileAsync(string collectionString, string fileName)
         {
             Windows.Storage.StorageFolder localFolder =
@@ -64,10 +68,12 @@ namespace OfficeSupplyManagementSystem.Persistency
         }
 
         /// <summary>
-        /// Reads values from file, returns values as string
+        /// Locates localFolder and the localFile based of the string input.
+        /// Creates an empty collection string and fills it based of the data from the localFile.
+        /// Returns said collection string
         /// </summary>
-        /// <param name="fileName">Name of the local file</param>
-        /// <returns></returns>
+        /// <param name="fileName">The desired filename string</param>
+        /// <returns>Returns a string to be converted using Json</returns>
         public static async Task<string> DeSerializeCollectionFileAsync(string fileName)
         {
             string collectionString = null;
