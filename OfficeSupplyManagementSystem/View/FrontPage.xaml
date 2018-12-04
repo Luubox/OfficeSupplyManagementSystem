@@ -39,6 +39,13 @@
             </PivotItem>
             <PivotItem Header="Opret ny vare">
                 <StackPanel Orientation="Vertical">
+                    <ComboBox ItemsSource="{Binding NewItem.CategoryList}" SelectedItem="{Binding NewItem}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" PlaceholderText="Kategori" Margin="0,0,5,0" />
                     <TextBox Text="{Binding NewItem.ItemName, Mode=TwoWay}" PlaceholderText="Navn" Margin="0,0,5,0" />
                     <TextBox Text="{Binding NewItem.ItemNumber, Mode=TwoWay}" PlaceholderText="Varenummer" Margin="0,0,5,0" />
