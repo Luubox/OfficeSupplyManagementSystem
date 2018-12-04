@@ -23,7 +23,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateItemCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
-
+        
         public int TargetIndex { get; set; }
 
         private Item _newItem;
