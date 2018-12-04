@@ -28,8 +28,7 @@ namespace OfficeSupplyManagementSystem.Handler
 
         public void EditAccount()
         {
-            //
-            AccountViewModel.AccountCatalog.AccountList[AccountViewModel.TargetIndex] = AccountViewModel.TargetIndex;
+            AccountViewModel.AccountCatalog.AccountList[AccountViewModel.TargetIndex] = AccountViewModel.TargetAccount;
         }
     }
 }
