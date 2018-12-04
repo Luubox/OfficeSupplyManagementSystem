@@ -95,7 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\StringToDoubleConverter.cs" />
+    <Compile Include="Common\Converter.cs" />
     <Compile Include="Handler\ItemHandler.cs" />
     <Compile Include="Handler\ResupplyOrderHandler.cs" />
     <Compile Include="Handler\AccountHandler.cs" />
@@ -124,9 +124,6 @@
       <DependentUpon>ResupplyOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\OrderViewModel.cs" />
-    <Compile Include="View\FrontPage.xaml.cs">
-      <DependentUpon>FrontPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
@@ -170,7 +167,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ResupplyOrderPage.xaml"/>
+    <Page Include="View\ResupplyOrderPage.xaml" />
     <Page Include="View\OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
