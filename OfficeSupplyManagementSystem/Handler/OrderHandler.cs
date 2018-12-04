@@ -26,7 +26,6 @@ namespace OfficeSupplyManagementSystem.Handler
             OrderViewModel.OrderCatalog.OrderList.RemoveAt(OrderViewModel
                 .TargetIndex);
         }
-
         public void EditOrder()
         {
             OrderViewModel.OrderCatalog.OrderList[OrderViewModel.TargetIndex] =
