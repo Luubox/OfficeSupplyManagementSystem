@@ -8,5 +8,6 @@ namespace OfficeSupplyManagementSystem.Model
 {
     class OrderCatalog
     {
+        private static OrderCatalog _instance = new OrderCatalog();
     }
 }
