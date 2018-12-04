@@ -124,9 +124,9 @@
       <DependentUpon>ResupplyOrderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\OrderViewModel.cs" />
-    <Compile Include="View\FrontPage.xaml.cs">
+    <!-- <Compile Include="View\FrontPage.xaml.cs">
       <DependentUpon>FrontPage.xaml</DependentUpon>
-    </Compile>
+    </Compile> -->
     <Compile Include="View\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>

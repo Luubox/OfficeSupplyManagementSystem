@@ -24,7 +24,7 @@
                         <Button Content="Price"/>
                         <Button Content="Antal"/>
                     </StackPanel>
-                    <ListView ItemsSource="{Binding ItemCatalog.ItemList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
+                    <ListView MaxHeight="500" ItemsSource="{Binding ItemCatalog.ItemList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
