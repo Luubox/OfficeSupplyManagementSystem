@@ -99,7 +99,7 @@
     <Compile Include="Handler\ItemHandler.cs" />
     <Compile Include="Handler\ResupplyOrderHandler.cs" />
     <Compile Include="Handler\AccountHandler.cs" />
-    <Compile Include="Handler\ItemHandler.cs" />
+    <!-- <Compile Include="Handler\ItemHandler.cs" /> -->
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountCatalog.cs" />
     <Compile Include="Model\Item.cs" />
@@ -107,8 +107,8 @@
     <Compile Include="Model\ResupplyOrder.cs" />
     <Compile Include="Model\ResupplyOrderCatalog.cs" />
     <Compile Include="Handler\OrderHandler.cs" />
-    <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\ItemCatalog.cs" />
+    <!-- <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\ItemCatalog.cs" /> -->
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderCatalog.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
