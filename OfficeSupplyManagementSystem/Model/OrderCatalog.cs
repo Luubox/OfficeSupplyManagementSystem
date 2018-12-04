@@ -24,11 +24,11 @@ namespace OfficeSupplyManagementSystem.Model
 
         public async void LoadOrderAsync()
         {
-            var order =
+            var orders =
                 await PersistencyService.LoadCollectionFromJsonAsync<Order>();
-            if (order.Count != 0)
+            if (orders.Count != 0)
             {
-                foreach (var order in order)
+                foreach (var order in orders)
                 {
                     OrderList.Add(order);
                 }
@@ -38,6 +38,8 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
 //                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", , "Jensen"));
+
+                SaveFile();
             }
         }
 

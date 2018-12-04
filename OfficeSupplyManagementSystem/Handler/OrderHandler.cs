@@ -11,7 +11,7 @@ namespace OfficeSupplyManagementSystem.Handler
     {
         public OrderViewModel OrderViewModel { get; set; }
 
-        public OrderHandler(OrderHandler orderHandler)
+        public OrderHandler(OrderViewModel orderViewModel)
         {
             OrderViewModel = orderViewModel;
         }

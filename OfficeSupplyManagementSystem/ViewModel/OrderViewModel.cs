@@ -25,7 +25,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public int TargetIndex { get; set; }
 
         private Order _newOrder;
-
         public Order NewOrder
         {
             get { return _newOrder; }
@@ -37,7 +36,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
         }
 
         private Order _targetOrder;
-
         public Order TargetOrder
         {
             get { return _targetOrder; }
@@ -48,7 +46,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
             }
         }
 
-        private OrderViewModel()
+        public OrderViewModel()
         {
             OrderCatalog = OrderCatalog.Instance;
             OrderHandler = new OrderHandler(this);
