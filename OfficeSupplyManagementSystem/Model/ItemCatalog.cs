@@ -59,7 +59,7 @@ namespace OfficeSupplyManagementSystem.Model
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList);
         }
 
-        //Add method that corresponds to the item class constructor (names doesn't have to match, only for clarity) 
+        //Add method that corresponds to the item class constructor (names dont have to match, only for clarity) 
         public void Add(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus, int itemPrice, string itemInfo)
         {
             Item newItem = new Item(itemName, itemNumber, itemCategory, itemAmount, itemStatus, itemPrice, itemInfo);
