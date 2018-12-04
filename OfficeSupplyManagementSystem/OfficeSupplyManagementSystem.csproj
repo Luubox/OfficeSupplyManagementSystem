@@ -106,6 +106,11 @@
     <Compile Include="Model\ItemCatalog.cs" />
     <Compile Include="Model\ResupplyOrder.cs" />
     <Compile Include="Model\ResupplyOrderCatalog.cs" />
+    <Compile Include="Handler\OrderHandler.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\ItemCatalog.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderCatalog.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +122,12 @@
     </Compile>
     <Compile Include="View\ResupplyOrderPage.xaml.cs">
       <DependentUpon>ResupplyOrderPage.xaml</DependentUpon>
+    <Compile Include="ViewModel\OrderViewModel.cs" />
+    <Compile Include="View\FrontPage.xaml.cs">
+      <DependentUpon>FrontPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ResupplyOrderPage.xaml">
+    <Page Include="View\OrderPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
