@@ -19,17 +19,20 @@ namespace OfficeSupplyManagementSystem.Handler
         public void CreateResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.Add(ResupplyOrderViewModel.NewResupplyOrder);
+            ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
 
         public void EditResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList[ResupplyOrderViewModel.TargetIndex] =
                 ResupplyOrderViewModel.TargetResupplyOrder;
+            ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
 
         public void DeleteResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.RemoveAt(ResupplyOrderViewModel.TargetIndex);
+            ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
     }
 }

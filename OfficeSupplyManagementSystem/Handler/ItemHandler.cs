@@ -21,22 +21,19 @@ namespace OfficeSupplyManagementSystem.Handler
         public void CreateItem()
         {
             ItemViewModel.ItemCatalog.ItemList.Add(ItemViewModel.NewItem);
+            ItemViewModel.ItemCatalog.SaveFile();
         }
 
         public void DeleteItem()
         {
             ItemViewModel.ItemCatalog.ItemList.RemoveAt(ItemViewModel.TargetIndex);
-            // TODO Opret nyt Arkiv-katalog
+            ItemViewModel.ItemCatalog.SaveFile();
         }
 
         public void EditItem()
         {
-            //ItemViewModel.ItemCatalog.ItemList.Insert(ItemViewModel.TargetIndex, ItemViewModel.TargetItem);
             ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
-        }
-
-        public void SortItem()
-        {
+            ItemViewModel.ItemCatalog.SaveFile();
         }
     }
 }

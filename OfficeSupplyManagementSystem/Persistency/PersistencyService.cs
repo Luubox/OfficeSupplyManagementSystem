@@ -19,7 +19,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <param name="collectionInput">The collection in question</param>
         public static async void SaveCollectionAsJsonAsync<T>(T collectionInput)
         {
-            string fileName = collectionInput.GetType().ToString();
+            string fileName = collectionInput.GetType().ToString() + ".json";
             string collectionString =
                 JsonConvert.SerializeObject(collectionInput);
             SerializeCollectionFileAsync(collectionString, fileName);
@@ -34,7 +34,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns>Returns a list of input type objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
-            string fileName = typeof(T).ToString();
+            string fileName = typeof(T).ToString() + ".json";
             List<T> collectionList = new List<T>();
 
             string result = await DeSerializeCollectionFileAsync(fileName);
