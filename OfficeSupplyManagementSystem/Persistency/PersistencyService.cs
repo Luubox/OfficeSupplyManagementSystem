@@ -34,6 +34,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns>Returns a list of input type objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
+            //TODO: Fix load. Den overskriver det eksisterende med default.
             string fileName = typeof(T).ToString() + ".json";
             List<T> collectionList = new List<T>();
 
@@ -46,7 +47,7 @@ namespace OfficeSupplyManagementSystem.Persistency
             }
             return collectionList;
         }
-        
+
         /// <summary>
         /// Locates localFolder and the localFile based of the string input.
         /// If the target localFile exist, overwrites with the new data,
