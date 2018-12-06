@@ -13,7 +13,8 @@
         <viewModel:ItemViewModel></viewModel:ItemViewModel>
     </Page.DataContext>
     <Grid>
-        <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All">
+        <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" 
+                           AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*">
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn Header="Varenummer"
                                              Binding="{Binding ItemNumber}"/>
