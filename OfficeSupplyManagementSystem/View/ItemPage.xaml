@@ -6,14 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <viewModel:ItemViewModel></viewModel:ItemViewModel>
     </Page.DataContext>
     <Grid>
-
-        <Pivot>
+        <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Varenummer"
+                                             Binding="{Binding ItemNumber}"/>
+                <controls:DataGridTextColumn Header="Kategori" 
+                                             Binding="{Binding ItemCategory}"/>
+                <controls:DataGridTextColumn Header="Navn" 
+                                             Binding="{Binding ItemName}"/>
+                <controls:DataGridTextColumn Header="Info" 
+                                             Binding="{Binding ItemInfo}"/>
+                <controls:DataGridTextColumn Header="Pris" 
+                                             Binding="{Binding ItemPrice}"/>
+                <controls:DataGridTextColumn Header="Antal" 
+                                             Binding="{Binding ItemAmount}"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+        <!--<Pivot>
             <PivotItem Header="Varekatalog">
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
@@ -54,7 +70,9 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <!--<TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" PlaceholderText="Kategori" Margin="0,0,5,0" />-->
+                    -->
+        <!--<TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" PlaceholderText="Kategori" Margin="0,0,5,0" />-->
+        <!--
                     <TextBox Text="{Binding NewItem.ItemName, Mode=TwoWay}" PlaceholderText="Navn" Margin="0,0,5,0" />
                     <TextBox Text="{Binding NewItem.ItemNumber, Mode=TwoWay}" PlaceholderText="Varenummer" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding NewItem.ItemInfo, Mode=TwoWay}" PlaceholderText="Beskrivelse" Margin="0,0,5,0" />
@@ -74,6 +92,6 @@
                     <Button Content="Ret" Command="{Binding EditItemCommand}" />
                 </StackPanel>
             </PivotItem>
-        </Pivot>
+        </Pivot>-->
     </Grid>
 </Page>
