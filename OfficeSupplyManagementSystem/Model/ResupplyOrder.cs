@@ -15,19 +15,39 @@ namespace OfficeSupplyManagementSystem.Model
         private int _resupplyOrderAmount;
 
         //Public properties for class
-        public int ResupplyOrderNumber { get => _resupplyOrderNumber; set => _resupplyOrderNumber = value; }
-        public string ResupplyOrderSupplier { get => _resupplyOrderSupplier; set => _resupplyOrderSupplier = value; }
-        public DateTime ResupplyOrderDate { get => _resupplyOrderDate; set => _resupplyOrderDate = value; }
-        public int ResupplyOrderAmount { get => _resupplyOrderAmount; set => _resupplyOrderAmount = value; }
+        public int ResupplyOrderNumber
+        {
+            get => _resupplyOrderNumber;
+            set => _resupplyOrderNumber = value;
+        }
+
+        public string ResupplyOrderSupplier
+        {
+            get => _resupplyOrderSupplier;
+            set => _resupplyOrderSupplier = value;
+        }
+
+        public DateTime ResupplyOrderDate
+        {
+            get => _resupplyOrderDate;
+            set => _resupplyOrderDate = value;
+        }
+
+        public int ResupplyOrderAmount
+        {
+            get => _resupplyOrderAmount;
+            set => _resupplyOrderAmount = value;
+        }
 
         //Empty constructor
         public ResupplyOrder()
         {
-            
+
         }
 
         //Constructor with the parameters
-        public ResupplyOrder(int resupplyOrderNumber, string resupplyOrderSupplier, DateTime resupplyOrderDate, int resupplyOrderAmount)
+        public ResupplyOrder(int resupplyOrderNumber, string resupplyOrderSupplier, DateTime resupplyOrderDate,
+            int resupplyOrderAmount)
         {
             _resupplyOrderNumber = resupplyOrderNumber;
             _resupplyOrderSupplier = resupplyOrderSupplier;

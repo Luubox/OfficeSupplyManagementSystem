@@ -5,10 +5,58 @@
     xmlns:local="using:OfficeSupplyManagementSystem.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.DataContext>
+        <viewModel:ResupplyOrderViewModel></viewModel:ResupplyOrderViewModel>
+    </Page.DataContext>
     <Grid>
 
+        <Pivot>
+            <PivotItem Header="Vareindleverings oversigt">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Indleveringsnummer"/>
+                        <Button Content="Leverandør"/>
+                        <Button Content="Indleveringsdato"/>
+                        <Button Content="Antal"/>
+                    </StackPanel>
+                    <ListView ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode= TwoWay}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel>
+                        <Button Content="Slet vareindlevering" Command ="{Binding DeleteResupplyOrderCommand}"/>
+                    </StackPanel>
+                </StackPanel>
+            </PivotItem>
+                <PivotItem Header ="Opret vareindlevering">
+                    <StackPanel Orientation="Vertical">
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Indleveringsnummer" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" PlaceholderText="Indleveringsdato" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal vare" Margin="0,0,5,0"/>
+                        <Button Content="Ny vareindlevering" Command="{Binding CreateItemCommand}"/>
+                    </StackPanel>
+                </PivotItem>
+            <PivotItem Header ="Revider tidligere vareindlevering">
+                <StackPanel Orientation="Vertical">
+                    <TextBox Text="{Binding TargetItem.ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetItem.ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetItem.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetItem.ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <Button Content="Ret vareindlevering" Command="{Binding EditResupplyOrderCommand}"/>
+                </StackPanel>
+            </PivotItem>
+        </Pivot>
     </Grid>
 </Page>

@@ -35,6 +35,10 @@ namespace OfficeSupplyManagementSystem.Model
             }
             else
             {
+                ResupplyOrderList.Add(new ResupplyOrder(452, "Hjem og fix", DateTime.Today, 743));
+                ResupplyOrderList.Add(new ResupplyOrder(453, "T-Hansen", DateTime.Today, 291));
+                ResupplyOrderList.Add(new ResupplyOrder(454, "Ikea", DateTime.Today, 482));
+                ResupplyOrderList.Add(new ResupplyOrder(455, "Wallmart", DateTime.Today, 285));
             }
         }
 
