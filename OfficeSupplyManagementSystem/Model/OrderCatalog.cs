@@ -47,7 +47,7 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
                 //TODO add deafault orders to the collection for testing purposes
-//                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", , "Jensen"));
+                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime() , "Jensen"));
 
                 SaveFile();
             }
