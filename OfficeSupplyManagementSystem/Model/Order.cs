@@ -24,11 +24,13 @@ namespace OfficeSupplyManagementSystem.Model
         public DateTime OrderDate { get => _orderDate; set => _orderDate = value; }
         public string OrderAccount { get => _orderAccount; set => _orderAccount = value; }
 
+        //default or empty constructor that takes 0 parameters
         public Order()
         {
             
         }
 
+        //constructor that takes 7 parameters of different types
         public Order(int orderNumber, string orderType, int orderTotalPrice, 
             string orderDeliveryAddress, DateTime orderDate, string orderAccount)
         {
