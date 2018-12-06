@@ -23,7 +23,7 @@
                         <Button Content="Bankinformationer"/>
                         <Button Content="Status"/>
                     </StackPanel>
-                    <ListView ItemsSource="{Binding AccountCatalog.AccountList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
+                    <ListView ItemsSource="{Binding AccountCatalog.AccountList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetAccount, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

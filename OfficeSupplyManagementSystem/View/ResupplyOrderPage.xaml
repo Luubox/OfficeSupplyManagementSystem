@@ -22,7 +22,7 @@
                         <Button Content="Indleveringsdato"/>
                         <Button Content="Antal"/>
                     </StackPanel>
-                    <ListView ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode= TwoWay}">
+                    <ListView ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetResupplyOrder, Mode= TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -50,10 +50,10 @@
                 </PivotItem>
             <PivotItem Header ="Revider tidligere vareindlevering">
                 <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetItem.ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetItem.ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetItem.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetItem.ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <Button Content="Ret vareindlevering" Command="{Binding EditResupplyOrderCommand}"/>
                 </StackPanel>
             </PivotItem>
