@@ -17,12 +17,12 @@ namespace OfficeSupplyManagementSystem.Model
         private bool _accountStatus;
 
         //public properties (full properties)
-        public string Number { get => _accountNumber; set => _accountNumber = value; } // => lampda expressions
-        public int Cvr { get => _accountCvr; set => _accountCvr = value; }
-        public string DeliveryAddress { get => _accountDeliveryAddress; set => _accountDeliveryAddress = value; }
-        public int Contact { get => _accountContact; set => _accountContact = value; }
-        public string BankingInfo { get => _accountBankingInfo; set => _accountBankingInfo = value; }
-        public bool Status { get => _accountStatus; set => _accountStatus = value; }
+        public string AccountNumber { get => _accountNumber; set => _accountNumber = value; } // => lampda expressions
+        public int AccountCvr { get => _accountCvr; set => _accountCvr = value; }
+        public string AccountDeliveryAddress { get => _accountDeliveryAddress; set => _accountDeliveryAddress = value; }
+        public int AccountContact { get => _accountContact; set => _accountContact = value; }
+        public string AccountBankingInfo { get => _accountBankingInfo; set => _accountBankingInfo = value; }
+        public bool AccountStatus { get => _accountStatus; set => _accountStatus = value; }
 
         //default or empty contructor (takes 0 parameters)
         public Account()
