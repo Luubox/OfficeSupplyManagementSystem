@@ -34,35 +34,35 @@
         </RelativePanel>
 
         <SplitView Name="MenuSplitView" Grid.Row="1" DisplayMode="Overlay"
-                   OpenPaneLength="200" CompactPaneLength="56">
+                   OpenPaneLength="300" CompactPaneLength="56">
             <SplitView.Pane>
-                <ListBox Name="MenuListBox" SelectionMode="Single" 
+                <ListBox Name="MenuListBox" SelectionMode="Single"
                          SelectionChanged="MenuListBox_OnSelectionChanged">
 
                     <ListBoxItem Name="ItemListBox">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE734;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
+                            <TextBlock Text="&#xE8F1;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
                             <TextBlock Text="Varer" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
                     
                     <ListBoxItem Name="OrderListBox">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE734;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
+                            <TextBlock Text="&#xE719;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
                             <TextBlock Text="Ordre" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
                     
                     <ListBoxItem Name="AccountListBox">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE734;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
+                            <TextBlock Text="&#xE779;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
                             <TextBlock Text="Konti" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
 
                     <ListBoxItem Name="ResupplyListBox">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="&#xE734;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
+                            <TextBlock Text="&#xE8F3;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
                             <TextBlock Text="Varelevering" FontSize="24" Margin="20,0,0,0"/>
                         </StackPanel>
                     </ListBoxItem>
