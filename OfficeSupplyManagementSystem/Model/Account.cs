@@ -22,7 +22,27 @@ namespace OfficeSupplyManagementSystem.Model
         public string AccountDeliveryAddress { get => _accountDeliveryAddress; set => _accountDeliveryAddress = value; }
         public int AccountContact { get => _accountContact; set => _accountContact = value; }
         public string AccountBankingInfo { get => _accountBankingInfo; set => _accountBankingInfo = value; }
-        public bool AccountStatus { get => _accountStatus; set => _accountStatus = value; }
+
+        public string AccountStatus
+        {
+            get { return _accountStatus.ToString(); }
+            set
+            {
+                //TODO: Fix default
+                switch (value.ToLower())
+                {
+                    case "true":
+                        _accountStatus = true;
+                        break;
+                    case "false":
+                        _accountStatus = false;
+                        break;
+                    default:
+                        _accountStatus = true;
+                        break;
+                }
+            }
+        }
 
         //default or empty contructor (takes 0 parameters)
         public Account()
