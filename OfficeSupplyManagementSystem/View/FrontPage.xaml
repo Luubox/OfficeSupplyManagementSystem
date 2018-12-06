@@ -14,7 +14,7 @@
     </Page.DataContext>
 
     <Grid>
-        <StackPanel>
+        <!--<StackPanel>
                 <StackPanel Background="DarkGray">
                     <TextBlock Text="testblock"/>
                 </StackPanel>
@@ -24,6 +24,6 @@
                         <Button Content="click me" Command="{Binding NavigateToItemCommand}" />
                     </StackPanel>
                 </Frame>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Page>

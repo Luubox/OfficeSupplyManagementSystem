@@ -25,6 +25,7 @@ namespace OfficeSupplyManagementSystem.View
         public FrontPage()
         {
             this.InitializeComponent();
+
         }
     }
 }
