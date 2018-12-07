@@ -39,7 +39,6 @@ namespace OfficeSupplyManagementSystem.Model
                 {
                     AccountList.Add(account);
                 }
-                SaveFile();
             }
             else
             {
@@ -56,13 +55,6 @@ namespace OfficeSupplyManagementSystem.Model
 
         public void SaveFile()
         {
-            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Account>>(AccountList);
-        }
-        //add method that corresponds to the account class contructer (names don't have to match, only for clarity
-        public void Add(string accountNumber, int accountCvr, string accountDeliveryAddress, int acccountContact, string accountBankingInfo, bool accountStatus)
-        {
-            Account newAccount = new Account(accountNumber, accountCvr, accountDeliveryAddress, acccountContact, accountBankingInfo, accountStatus);
-            AccountList.Add(newAccount);
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Account>>(AccountList);
         }
     }

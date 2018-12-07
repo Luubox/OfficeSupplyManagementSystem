@@ -20,7 +20,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <param name="collectionInput">The collection in question</param>
         public static async void SaveCollectionAsJsonAsync<T>(T collectionInput)
         {
-            string fileName = collectionInput.GetType().ToString();
+            string fileName = collectionInput.GetType().ToString() + ".json";
             string collectionString =
                 JsonConvert.SerializeObject(collectionInput);
             SerializeCollectionFileAsync(collectionString, fileName);
@@ -36,7 +36,8 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns>Returns a list of input type objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
-            string fileName = typeof(T).ToString();
+            //TODO: Fix load. Den overskriver det eksisterende med default.
+            string fileName = typeof(T).ToString() + ".json";
             List<T> collectionList = new List<T>();
 
             string result = await DeSerializeCollectionFileAsync(fileName);
@@ -49,7 +50,7 @@ namespace OfficeSupplyManagementSystem.Persistency
             Debug.WriteLine("Done loading from: " + fileName);
             return collectionList;
         }
-        
+
         /// <summary>
         /// Locates localFolder and the localFile based of the string input.
         /// If the target localFile exist, overwrites with the new data,
