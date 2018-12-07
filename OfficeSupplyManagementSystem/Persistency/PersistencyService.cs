@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace OfficeSupplyManagementSystem.Persistency
             string collectionString =
                 JsonConvert.SerializeObject(collectionInput);
             SerializeCollectionFileAsync(collectionString, fileName);
+            Debug.WriteLine("Done writing to: " + fileName);
         }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace OfficeSupplyManagementSystem.Persistency
                 collectionList =
                     JsonConvert.DeserializeObject<List<T>>(result);
             }
+            Debug.WriteLine("Done loading from: " + fileName);
             return collectionList;
         }
         
