@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -26,7 +27,16 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand SortItemCommand { get; set; }
 
 
-        public int TargetIndex { get; set; }
+        private int _targetIndex;
+        public int TargetIndex
+        {
+            get { return _targetIndex; }
+            set
+            {
+                _targetIndex = value;
+                Debug.WriteLine(_targetIndex);
+            }
+        }
 
         private Item _newItem;
         public Item NewItem
@@ -40,6 +50,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
         }
 
         private Item _targetItem;
+
         public Item TargetItem
         {
             get { return _targetItem; }

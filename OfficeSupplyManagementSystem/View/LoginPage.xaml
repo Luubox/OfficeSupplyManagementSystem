@@ -18,6 +18,8 @@
             <TextBlock Name="HeaderTextBlock" Text="Office Supply Management System" 
                        FontSize="40" Padding="10"/>
 
+            <TextBlock Name="MessageBox" Text="{Binding Message}" HorizontalAlignment="Center"/>
+
             <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn" 
                      Text="{Binding TempUser.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                      Width="200" Padding="5"/>
@@ -27,7 +29,6 @@
 
             <Button Name="LoginButton" Content="Login" Command="{Binding LoginCommand}" 
                     HorizontalAlignment="Center" Padding="5"/>
-            <TextBlock Name="MessageBox" Text="{Binding Message}" />
         </StackPanel>
     </Grid>
 </Page>

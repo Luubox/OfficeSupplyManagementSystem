@@ -10,25 +10,33 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
-        <viewModel:ItemViewModel></viewModel:ItemViewModel>
+        <viewModel:ItemViewModel/>
     </Page.DataContext>
 
     <Grid>
-
-        <!--controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" 
-                           AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*">
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber}"/>
-                <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory}"/>
-                <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName}"/>
-                <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo}"/>
-                <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice}"/>
-                <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount}"/>
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>-->
         <Pivot>
             <PivotItem Header="Varekatalog">
                 <StackPanel>
+                    <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*" 
+                                   SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber}" />
+                            <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory}" />
+                            <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName}" />
+                            <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo}" />
+                            <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice}" />
+                            <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount}" />
+                            <controls:DataGridTemplateColumn Width="Auto">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Slet" Command="{Binding DeleteItemCommand}"/>
+                                        <!--TODO: Fix deletecommand-->
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                    <!--<StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Nummer"/>
                         <Button Content="Kategori"/>
@@ -56,6 +64,7 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Slet" Command="{Binding DeleteItemCommand}" />
                     </StackPanel>
+                </StackPanel>-->
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny vare">
@@ -67,9 +76,9 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    
-        <TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" PlaceholderText="Kategori" Margin="0,0,5,0" />
-        
+
+                    <TextBox Text="{Binding NewItem.ItemCategory, Mode=TwoWay}" PlaceholderText="Kategori" Margin="0,0,5,0" />
+
                     <TextBox Text="{Binding NewItem.ItemName, Mode=TwoWay}" PlaceholderText="Navn" Margin="0,0,5,0" />
                     <TextBox Text="{Binding NewItem.ItemNumber, Mode=TwoWay}" PlaceholderText="Varenummer" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding NewItem.ItemInfo, Mode=TwoWay}" PlaceholderText="Beskrivelse" Margin="0,0,5,0" />
@@ -80,13 +89,13 @@
             </PivotItem>
             <PivotItem Header="Ændre vare">
                 <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetItem.ItemCategory, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <TextBox Text="{Binding TargetItem.ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <TextBox Text="{Binding TargetItem.ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <TextBox Text="{Binding TargetItem.ItemInfo, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <TextBox Text="{Binding TargetItem.ItemPrice, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <TextBox Text="{Binding TargetItem.ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
-                    <Button Content="Ret" Command="{Binding EditItemCommand}" />
+                    <TextBox Text="{Binding TargetItem.ItemCategory, Mode=TwoWay}" Margin="5"/>
+                    <TextBox Text="{Binding TargetItem.ItemName, Mode=TwoWay}" Margin="5" />
+                    <TextBox Text="{Binding TargetItem.ItemNumber, Mode=TwoWay}" Margin="5" />
+                    <TextBox Text="{Binding TargetItem.ItemInfo, Mode=TwoWay}" Margin="5" />
+                    <TextBox Text="{Binding TargetItem.ItemPrice, Mode=TwoWay}" Margin="5" />
+                    <TextBox Text="{Binding TargetItem.ItemAmount, Mode=TwoWay}" Margin="5" />
+                    <Button Content="Ret" Command="{Binding EditItemCommand}" Margin="5"/>
                 </StackPanel>
             </PivotItem>
         </Pivot>
