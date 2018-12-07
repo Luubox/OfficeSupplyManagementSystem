@@ -35,5 +35,11 @@ namespace OfficeSupplyManagementSystem.Handler
             ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
             ItemViewModel.ItemCatalog.SaveFile();
         }
+
+
+        public void SortList()
+        {
+            ItemViewModel.ItemCatalog.ItemList.OrderBy(x => x.ItemNumber);
+        }
     }
 }
