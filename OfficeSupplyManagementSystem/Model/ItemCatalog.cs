@@ -29,6 +29,7 @@ namespace OfficeSupplyManagementSystem.Model
             ItemList = new ObservableCollection<Item>();
             LoadItemsAsync();
         }
+
         
         public async void LoadItemsAsync()
         {

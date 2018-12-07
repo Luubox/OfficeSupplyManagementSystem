@@ -23,7 +23,9 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateItemCommand { get; set; }
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
-        
+        public ICommand SortItemCommand { get; set; }
+
+
         public int TargetIndex { get; set; }
 
         private Item _newItem;
@@ -58,6 +60,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
             CreateItemCommand = new RelayCommand(ItemHandler.CreateItem);
             DeleteItemCommand = new RelayCommand(ItemHandler.DeleteItem);
             EditItemCommand = new RelayCommand(ItemHandler.EditItem);
+            SortItemCommand = new RelayCommand(ItemHandler.SortList);
 
             NewItem = new Item();
             TargetItem = new Item();
