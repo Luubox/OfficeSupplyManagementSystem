@@ -12,22 +12,18 @@
     <Page.DataContext>
         <viewModel:ItemViewModel></viewModel:ItemViewModel>
     </Page.DataContext>
+
     <Grid>
+
         <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" 
                            AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*">
             <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn Header="Varenummer"
-                                             Binding="{Binding ItemNumber}"/>
-                <controls:DataGridTextColumn Header="Kategori" 
-                                             Binding="{Binding ItemCategory}"/>
-                <controls:DataGridTextColumn Header="Navn" 
-                                             Binding="{Binding ItemName}"/>
-                <controls:DataGridTextColumn Header="Info" 
-                                             Binding="{Binding ItemInfo}"/>
-                <controls:DataGridTextColumn Header="Pris" 
-                                             Binding="{Binding ItemPrice}"/>
-                <controls:DataGridTextColumn Header="Antal" 
-                                             Binding="{Binding ItemAmount}"/>
+                <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber}"/>
+                <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory}"/>
+                <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName}"/>
+                <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo}"/>
+                <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice}"/>
+                <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount}"/>
             </controls:DataGrid.Columns>
         </controls:DataGrid>
         <!--<Pivot>
