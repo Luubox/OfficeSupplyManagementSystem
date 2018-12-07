@@ -15,6 +15,7 @@ namespace OfficeSupplyManagementSystem.Model
         private string _orderDeliveryAddress;
         private DateTime _orderDate;
         private string _orderAccount;
+        private string _orderStatus;
 
         //public properties (full property)
         public int OrderNumber { get => _orderNumber; set => _orderNumber = value; }
@@ -23,6 +24,7 @@ namespace OfficeSupplyManagementSystem.Model
         public string OrderDeliveryAddress { get => _orderDeliveryAddress; set => _orderDeliveryAddress = value; }
         public DateTime OrderDate { get => _orderDate; set => _orderDate = value; }
         public string OrderAccount { get => _orderAccount; set => _orderAccount = value; }
+        public string OrderStatus { get => _orderStatus; set => _orderStatus = value; }
 
         //default or empty constructor that takes 0 parameters
         public Order()
@@ -30,9 +32,9 @@ namespace OfficeSupplyManagementSystem.Model
             
         }
 
-        //constructor that takes 7 parameters of different types
+        //constructor that takes 8 parameters of different types
         public Order(int orderNumber, string orderType, int orderTotalPrice, 
-            string orderDeliveryAddress, DateTime orderDate, string orderAccount)
+            string orderDeliveryAddress, DateTime orderDate, string orderAccount, string orderStatus)
         {
             _orderNumber = orderNumber;
             _orderType = orderType;
@@ -40,6 +42,7 @@ namespace OfficeSupplyManagementSystem.Model
             _orderDeliveryAddress = orderDeliveryAddress;
             _orderDate = orderDate;
             _orderAccount = orderAccount;
+            _orderStatus = orderStatus;
         }
     }
 }

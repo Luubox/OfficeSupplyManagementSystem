@@ -18,10 +18,10 @@ namespace OfficeSupplyManagementSystem.Model
         private static OrderCatalog _instance = new OrderCatalog();
 
         //public property of the class
-       public static OrderCatalog Instance { get => _instance; } // => lambda expression
+        public static OrderCatalog Instance { get => _instance; } // => lambda expression
 
         //ObervableCollection of Orders with automatic get; set;
-       public ObservableCollection<Order> OrderList { get; set; }
+        public ObservableCollection<Order> OrderList { get; set; }
 
         //constructor that take 0 parameters
         public OrderCatalog()
@@ -45,7 +45,7 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
                 //TODO add deafault orders to the collection for testing purposes
-                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime() , "Jensen"));
+                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime(), "Jensen", "Test Status"));
 
                 SaveFile();
             }
