@@ -43,11 +43,11 @@ namespace OfficeSupplyManagementSystem.Model
             else
             {
                 //adds default accounts to collections for testing purposes
-                AccountList.Add(new Account("3527564605", 582058, "Nikolajsgade 22", 22448866, "836295726490315", true));
-                AccountList.Add(new Account("6274869663", 918436, "Johansgade 26", 19634657, "325642478573578", true));
-                AccountList.Add(new Account("6726498592", 501746, "Saxildsgade 30", 49859034, "267572364782360", false));
-                AccountList.Add(new Account("8765434900", 182791, "Patricksgade 22", 94876463, "856748959568747", true));
-                AccountList.Add(new Account("3456775357", 758694, "Jonasgade 24", 56734894, "657465765386538", false));
+                AccountList.Add(new Account("3527564605", "Kragh & CO.", 582058, "Nikolajsgade 22", 22448866, "836295726490315", "true"));
+                AccountList.Add(new Account("6274869663", "Nielsens GørDetDaSelvHus", 918436, "Johansgade 26", 19634657, "325642478573578", "true"));
+                AccountList.Add(new Account("6726498592", "Saxilds Vuggestue", 501746, "Saxildsgade 30", 49859034, "267572364782360", "false"));
+                AccountList.Add(new Account("8765434900", "Mathias' Skur", 182791, "Patricksgade 22", 94876463, "856748959568747", "true"));
+                AccountList.Add(new Account("3456775357", "Rasmussen Gør Det Godt", 758694, "Jonasgade 24", 56734894, "657465765386538", "false"));
 
                 SaveFile();
             }

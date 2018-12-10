@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
@@ -15,8 +16,31 @@
         <Pivot>
             <PivotItem Header="Kontooversigt">
                 <StackPanel>
+                    <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding AccountCatalog.AccountList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
+                                       SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetAccount, Mode=TwoWay}" >
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn Header="Kontonummer" Binding="{Binding AccountNumber}" />
+                            <controls:DataGridTextColumn Header="Kontonavn" Binding="{Binding AccountName}" />
+                            <controls:DataGridTextColumn Header="CVR" Binding="{Binding AccountCvr}" />
+                            <controls:DataGridTextColumn Header="Leveringsadresse" Binding="{Binding AccountDeliveryAddress}" />
+                            <controls:DataGridTextColumn Header="Telefonnummer" Binding="{Binding AccountContact}" />
+                            <controls:DataGridTextColumn Header="Bankinformationer" Binding="{Binding AccountBankingInfo}" />
+                            <controls:DataGridTextColumn Header="Status" Binding="{Binding AccountStatus}" />
+                            <controls:DataGridTemplateColumn Width="Auto">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Slet" Command="{Binding DeleteAccountCommand}"></Button>
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                        
+                </StackPanel>
+                <!--<StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Kontonummer"/>
+                        <Button Content="Kontonavn"/>
                         <Button Content="CVR"/>
                         <Button Content="Leveringsadresse"/>
                         <Button Content="Telefonnummer"/>
@@ -28,6 +52,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="{Binding AccountNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding AccountName, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding AccountCvr, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding AccountDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding AccountContact, Mode=TwoWay}" Margin="0,0,5,0"/>
@@ -40,28 +65,29 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Slet" Command="{Binding DeleteAccountCommand}"/>
                     </StackPanel>
-                </StackPanel>
+                    </StackPanel> -->
             </PivotItem>
             <PivotItem Header="Opret ny konto">
-                <StackPanel Orientation="Vertical">
-                    <ComboBox ItemsSource="{Binding NewAccount.CategoryList}" SelectedItem="{Binding NewAccount.AccountCategory, Mode=TwoWay}">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <TextBox Text="{Binding NewAccount.AccountNumber, Mode=TwoWay}" PlaceholderText="Kontonummer" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewAccount.AccountCvr, Mode=TwoWay}" PlaceholderText="CVR" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewAccount.AccountDeliveryAddress, Mode=TwoWay}" PlaceholderText="Telefonnummer" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewAccount.AccountBankingInfo, Mode=TwoWay}" PlaceholderText="Konto- og registreringsnummer" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewAccount.AccountStatus, Mode=TwoWay}" PlaceholderText="Status" Margin="0,0,5,0"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBox Text="{Binding NewAccount.AccountNumber, Mode=TwoWay}" PlaceholderText="Kontonummer"/>
+                    <TextBox Text="{Binding NewAccount.AccountName, Mode=TwoWay}" PlaceholderText="Kontonavn"/>
+                    <TextBox Text="{Binding NewAccount.AccountCvr, Mode=TwoWay}" PlaceholderText="CVR"/>
+                    <TextBox Text="{Binding NewAccount.AccountDeliveryAddress, Mode=TwoWay}" PlaceholderText="Telefonnummer"/>
+                    <TextBox Text="{Binding NewAccount.AccountBankingInfo, Mode=TwoWay}" PlaceholderText="Konto- og registreringsnummer"/>
+                    <TextBox Text="{Binding NewAccount.AccountStatus, Mode=TwoWay}" PlaceholderText="Status"/>
                     <Button Content="Ny" Command="{Binding CreateAccountCommand}"/>
                 </StackPanel>
+                </Grid>
             </PivotItem>
             <PivotItem Header="Ændring af konto">
                 <StackPanel Orientation="Vertical">
                     <TextBox Text="{Binding TargetAccount.AccountNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetAccount.AccountName, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding TargetAccount.AccountCvr, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}" Margin="0,0,5,0"/>
