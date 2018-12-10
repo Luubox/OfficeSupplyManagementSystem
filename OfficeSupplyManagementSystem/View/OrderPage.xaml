@@ -16,24 +16,16 @@
         <Pivot>
             <PivotItem Header="Ordrekatalog">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Nummer"/>
-                        <Button Content="Type"/>
-                        <Button Content="Total Pris"/>
-                        <Button Content="Addresse"/>
-                        <Button Content="Dato"/>
-                        <Button Content="Konto"/>
-                    </StackPanel>
                     <ListView ItemsSource="{Binding OrderCatalog.OrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <!--<TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>-->
                                     <TextBlock Text="{Binding OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <!--<TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>-->
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>

@@ -19,10 +19,13 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                return _orderLineItemSubTotal;
+            }
+            set
+            {
                 _orderLineItemSubTotal =
                     Convert.ToDecimal(OrderLineItemItem.ItemPrice) *
                     OrderLineItemAmount;
-                return _orderLineItemSubTotal;
             }
         }
 

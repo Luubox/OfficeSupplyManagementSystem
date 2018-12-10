@@ -16,7 +16,7 @@ namespace OfficeSupplyManagementSystem.Model
         private DateTime _orderDate;
         private string _orderAccount;
         private string _orderStatus;
-        private ObservableCollection<OrderLineItem> _orderLineItemList;
+        private ObservableCollection<OrderLineItem> _orderLineItemList = new ObservableCollection<OrderLineItem>();
 
         public int OrderNumber { get => _orderNumber; set => _orderNumber = value; }
         public string OrderType { get => _orderType; set => _orderType = value; }
@@ -55,7 +55,11 @@ namespace OfficeSupplyManagementSystem.Model
             _orderDate = orderDate;
             _orderAccount = orderAccount;
             _orderStatus = orderStatus;
-            _orderLineItemList = orderLineItemList;
+
+            foreach (var item in orderLineItemList)
+            {
+                _orderLineItemList.Add(item);
+            }
         }
     }
 }
