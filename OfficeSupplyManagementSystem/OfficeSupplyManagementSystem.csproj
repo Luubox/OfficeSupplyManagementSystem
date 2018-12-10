@@ -103,6 +103,7 @@
     <Compile Include="Model\AccountCatalog.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\ItemCatalog.cs" />
+    <Compile Include="Model\OrderLineItem.cs" />
     <Compile Include="Model\ResupplyOrder.cs" />
     <Compile Include="Model\ResupplyOrderCatalog.cs" />
     <Compile Include="Handler\OrderHandler.cs" />
