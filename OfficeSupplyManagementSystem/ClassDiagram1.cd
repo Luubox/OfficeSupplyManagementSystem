@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OfficeSupplyManagementSystem.Model.Account">
+    <Position X="5.25" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIgAAEAAAABAAAEAAABAgAgAAIAAACAAAQAAAgA=</HashCode>
+      <FileName>Model\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.AccountCatalog" Collapsed="true">
+    <Position X="11.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAAAAAAAAAAAACAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <FileName>Model\AccountCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.Item" Collapsed="true">
+    <Position X="13" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECAAADABEEAAAAiAACACAACAAAAEAAIAAAEAAAAA=</HashCode>
+      <FileName>Model\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.ItemCatalog">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAgAAAAgAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <FileName>Model\ItemCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.Order" Collapsed="true">
+    <Position X="11.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAACIAACACACAAAgAEgAAACAQAAAAAAgAAAACAAAA=</HashCode>
+      <FileName>Model\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.OrderCatalog" Collapsed="true">
+    <Position X="13" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAARAAAAAAAEAA=</HashCode>
+      <FileName>Model\OrderCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.ResupplyOrder" Collapsed="true">
+    <Position X="9.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAABAAAAAAAAAAAEgAIAAAAAAAEAAAAAAAAAUAAA=</HashCode>
+      <FileName>Model\ResupplyOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.ResupplyOrderCatalog" Collapsed="true">
+    <Position X="11.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAEAAAAAAAAAAAEAAAAAAAAAAAAAAAARAAAAAAAAAA=</HashCode>
+      <FileName>Model\ResupplyOrderCatalog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OfficeSupplyManagementSystem.Model.User" Collapsed="true">
+    <Position X="13" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAIAAAAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
