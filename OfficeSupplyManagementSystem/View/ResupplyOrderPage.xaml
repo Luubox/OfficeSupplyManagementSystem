@@ -45,7 +45,7 @@
                         <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
                         <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" PlaceholderText="Indleveringsdato" Margin="0,0,5,0"/>
                         <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal vare" Margin="0,0,5,0"/>
-                        <Button Content="Ny vareindlevering" Command="{Binding CreateItemCommand}"/>
+                        <Button Content="Ny vareindlevering" Command="{Binding CreateResupplyOrderCommand}"/>
                     </StackPanel>
                 </PivotItem>
             <PivotItem Header ="Revider tidligere vareindlevering">

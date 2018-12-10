@@ -31,7 +31,6 @@ namespace OfficeSupplyManagementSystem.Model
                 {
                     ResupplyOrderList.Add(resupplyOrder);
                 }
-                SaveFile();
             }
             else
             {
@@ -44,14 +43,6 @@ namespace OfficeSupplyManagementSystem.Model
 
         public void SaveFile()
         {
-            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<ResupplyOrder>>(ResupplyOrderList);
-        }
-
-        public void Add(int resupplyOrderNumber, string resupplyOrderSupplier, DateTime resupplyOrderDate,
-            int resupplyOrderAmount)
-        {
-            ResupplyOrder newResupplyOrder = new ResupplyOrder(resupplyOrderNumber, resupplyOrderSupplier, resupplyOrderDate, resupplyOrderAmount);
-            ResupplyOrderList.Add(newResupplyOrder);
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<ResupplyOrder>>(ResupplyOrderList);
         }
     }

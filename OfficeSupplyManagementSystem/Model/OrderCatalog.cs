@@ -41,8 +41,6 @@ namespace OfficeSupplyManagementSystem.Model
                 {
                     OrderList.Add(order);
                 }
-
-                SaveFile();
             }
             else
             {
@@ -55,15 +53,6 @@ namespace OfficeSupplyManagementSystem.Model
 
         public void SaveFile()
         {
-            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Order>>(OrderList);
-        }
-
-        //Add method that corresponds to hte item class constructor, the names doesnt have to match, only for clarity
-        public void Add(int orderNumber, string orderType, int orderTotalPrice,
-            string orderDeliveryAddress, DateTime orderDate, string orderAccount, string orderStatus)
-        {
-            Order newOrder = new Order(orderNumber, orderType, orderTotalPrice, orderDeliveryAddress, orderDate, orderAccount, orderStatus);
-            OrderList.Add(newOrder);
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Order>>(OrderList);
         }
     }

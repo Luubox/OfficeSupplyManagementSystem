@@ -19,17 +19,20 @@ namespace OfficeSupplyManagementSystem.Handler
         public void CreateOrder()
         {
             OrderViewModel.OrderCatalog.OrderList.Add(OrderViewModel.NewOrder);
+            OrderViewModel.OrderCatalog.SaveFile();
         }
 
         public void DeleteOrder()
         {
             OrderViewModel.OrderCatalog.OrderList.RemoveAt(OrderViewModel
                 .TargetIndex);
+            OrderViewModel.OrderCatalog.SaveFile();
         }
         public void EditOrder()
         {
             OrderViewModel.OrderCatalog.OrderList[OrderViewModel.TargetIndex] =
                 OrderViewModel.TargetOrder;
+            OrderViewModel.OrderCatalog.SaveFile();
         }
     }
 }

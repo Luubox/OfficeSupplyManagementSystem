@@ -19,16 +19,19 @@ namespace OfficeSupplyManagementSystem.Handler
         public void CreateAccount()
         {
             AccountViewModel.AccountCatalog.AccountList.Add(AccountViewModel.NewAccount);
+            AccountViewModel.AccountCatalog.SaveFile();
         }
 
         public void DeleteAccount()
         {
             AccountViewModel.AccountCatalog.AccountList.RemoveAt(AccountViewModel.TargetIndex);
+            AccountViewModel.AccountCatalog.SaveFile();
         }
 
         public void EditAccount()
         {
             AccountViewModel.AccountCatalog.AccountList[AccountViewModel.TargetIndex] = AccountViewModel.TargetAccount;
+            AccountViewModel.AccountCatalog.SaveFile();
         }
     }
 }

@@ -5,15 +5,29 @@
     xmlns:local="using:OfficeSupplyManagementSystem.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.DataContext>
+        <viewModel:LoginViewModel/>
+    </Page.DataContext>
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Office Supply Management System" FontSize="40" Padding="10"/>
-            <TextBox PlaceholderText="Brugernavn" Width="200" Padding="5"/>
-            <PasswordBox PlaceholderText="Password" Width="200" Padding="5"/>
-            <Button Content="Login" HorizontalAlignment="Center" Padding="5"/>
+            <TextBlock Name="HeaderTextBlock" Text="Office Supply Management System" 
+                       FontSize="40" Padding="10"/>
+
+            <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn" 
+                     Text="{Binding TempUser.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     Width="200" Padding="5"/>
+            <PasswordBox Name="PasswordBox"  PlaceholderText="Password" 
+                         Password="{Binding TempUser.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="200" Padding="5"/>
+
+            <Button Name="LoginButton" Content="Login" Command="{Binding LoginCommand}" 
+                    HorizontalAlignment="Center" Padding="5"/>
+            <TextBlock Name="MessageBox" Text="{Binding Message}" />
         </StackPanel>
     </Grid>
 </Page>
