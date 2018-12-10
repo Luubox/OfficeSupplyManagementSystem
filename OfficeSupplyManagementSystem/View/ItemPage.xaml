@@ -17,59 +17,69 @@
     <Grid>
         <Pivot>
             <PivotItem Header="Varekatalog">
+
                 <StackPanel>
-                    <!--TODO: Fix slet-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="56"/>
+                        </Grid.RowDefinitions>
+                    </Grid>
                     <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*" 
-                                   SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}" >
+                                   SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}" Grid.Row="0">
                         <controls:DataGrid.Columns>
                             <!--TODO: Fix headerstyles - Den skal ikke være grå og lille, så kan man ikke se den!-->
-                            <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber}" />
-                            <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory}" />
-                            <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName}" />
-                            <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo}" />
-                            <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice}" />
-                            <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount}" />
-                            <controls:DataGridTemplateColumn Width="Auto">
-                                <controls:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Content="Slet" Command="{Binding DeleteItemCommand}"/>
-                                        <!--TODO: Fix deletecommand-->
-                                    </DataTemplate>
-                                </controls:DataGridTemplateColumn.CellTemplate>
-                            </controls:DataGridTemplateColumn>
+                            <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber, Mode=TwoWay}" />
+                            <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory, Mode=TwoWay}" />
+                            <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName, Mode=TwoWay}" />
+                            <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo, Mode=TwoWay}" />
+                            <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice, Mode=TwoWay}" />
+                            <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount, Mode=TwoWay}" />
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
-                    <!--<StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Nummer"/>
-                        <Button Content="Kategori"/>
-                        <Button Content="Navn"/>
-                        <Button Content="Info"/>
-                        <Button Content="Price"/>
-                        <Button Content="Antal"/>
+                    <StackPanel Grid.Row="1">
+                        <Button Content="Slet" Command="{Binding DeleteItemCommand}" Height="56" Width="56"/>
                     </StackPanel>
-                    <ListView ItemsSource="{Binding ItemCatalog.ItemList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
-                                    <TextBlock Text="{Binding ItemCategory, Mode=TwoWay}" FontWeight="Bold" Margin="0,0,5,0" />
-                                    <TextBlock Text="{Binding ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
-                                    <TextBlock Text="{Binding ItemInfo, Mode=TwoWay}" FontStyle="Italic" Margin="0,0,5,0" />
-                                    <TextBlock Text="{Binding ItemPrice, Mode=TwoWay}" Margin="0,0,3,0" />
-                                    <TextBlock Text="DKK" Margin="0,0,5,0"/>
-                                    <TextBlock Text="+"/>
-                                    <TextBlock Text="{Binding ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Slet" Command="{Binding DeleteItemCommand}" />
-                    </StackPanel>
-                </StackPanel>-->
                 </StackPanel>
             </PivotItem>
+                <!--#region 1. iteration-->
+                <PivotItem Header="Testpage">
+
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Nummer" />
+                            <Button Content="Kategori" />
+                            <Button Content="Navn" />
+                            <Button Content="Info" />
+                            <Button Content="Price" />
+                            <Button Content="Antal" />
+                        </StackPanel>
+                        <ListView ItemsSource="{Binding ItemCatalog.ItemList}"
+                                  SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
+                                  SelectedItem="{Binding TargetItem, Mode=TwoWay}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding ItemNumber, Mode=TwoWay}" Margin="0,0,5,0" />
+                                        <TextBlock Text="{Binding ItemCategory, Mode=TwoWay}" FontWeight="Bold"
+                                                   Margin="0,0,5,0" />
+                                        <TextBlock Text="{Binding ItemName, Mode=TwoWay}" Margin="0,0,5,0" />
+                                        <TextBlock Text="{Binding ItemInfo, Mode=TwoWay}" FontStyle="Italic"
+                                                   Margin="0,0,5,0" />
+                                        <TextBlock Text="{Binding ItemPrice, Mode=TwoWay}" Margin="0,0,3,0" />
+                                        <TextBlock Text="DKK" Margin="0,0,5,0" />
+                                        <TextBlock Text="+" />
+                                        <TextBlock Text="{Binding ItemAmount, Mode=TwoWay}" Margin="0,0,5,0" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" />
+                        </StackPanel>
+                    </StackPanel>
+                </PivotItem>
+                <!--#endregion-->
             <PivotItem Header="Opret ny vare">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -97,8 +107,8 @@
             <PivotItem Header="Ændre vare">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical">
                         <TextBox Text="{Binding TargetItem.ItemCategory, Mode=TwoWay}"/>
