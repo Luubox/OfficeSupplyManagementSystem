@@ -17,27 +17,22 @@ namespace OfficeSupplyManagementSystem.Model
 
         public decimal OrderLineItemSubTotal
         {
-            get
-            {
-                return _orderLineItemSubTotal;
-            }
-            set
-            {
-                _orderLineItemSubTotal =
-                    Convert.ToDecimal(OrderLineItemItem.ItemPrice) *
-                    OrderLineItemAmount;
-            }
+            get => _orderLineItemSubTotal;
+            //TODO: Fix reference?
+            set => _orderLineItemSubTotal =
+                Convert.ToDecimal(OrderLineItemItem.ItemPrice) *
+                OrderLineItemAmount;
         }
 
         public OrderLineItem()
         {
-            
+
         }
 
         public OrderLineItem(Item orderLineItemItem, int orderLineItemAmount)
         {
             _orderLineItemItem = orderLineItemItem;
             _orderLineItemAmount = orderLineItemAmount;
-        } 
+        }
     }
 }

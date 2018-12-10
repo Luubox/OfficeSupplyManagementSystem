@@ -20,12 +20,13 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <!--<TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>-->
-                                    <TextBlock Text="{Binding OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <!--<TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>-->
+                                    <TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <ListView ItemsSource="{Binding OrderLineItemList, Mode=TwoWay}"></ListView>
+                                    <TextBlock Text="{Binding OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -36,26 +37,37 @@
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny order">
-                <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding NewOrder.OrderNumber, Mode=TwoWay}" PlaceholderText="Nummer" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewOrder.OrderType, Mode=TwoWay}" PlaceholderText="Type" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewOrder.OrderTotalPrice, Mode=TwoWay}" PlaceholderText="Total Pris" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewOrder.OrderDeliveryAddress, Mode=TwoWay}" PlaceholderText="Addresse" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewOrder.OrderDate, Mode=TwoWay}" PlaceholderText="Dato" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewOrder.OrderAccount, Mode=TwoWay}" PlaceholderText="Konto" Margin="0,0,5,0"/>
-                    <Button Content="Opret" Command="{Binding CreateOrderCommand}"/>
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBox Text="{Binding NewOrder.OrderAccount, Mode=TwoWay}" PlaceholderText="Konto"
+                                 Margin="0,0,5,0" />
+                        <DatePicker Date="{Binding NewOrder.OrderDate, Mode=TwoWay}" Margin="0,0,5,0" />
+                        <TextBox Text="{Binding NewOrder.OrderDeliveryAddress, Mode=TwoWay}"
+                                 PlaceholderText="Levering Adresse" Margin="0,0,5,0" />
+                        <CheckBox IsChecked="{Binding NewOrder.OrderType, Mode=TwoWay}" Margin="0,0,5,0" />
+                        <Button Content="Opret" Command="{Binding CreateOrderCommand}" />
+                    </StackPanel>
+                </Grid>
             </PivotItem>
             <PivotItem Header="Ændre order">
-                <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetOrder.OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetOrder.OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetOrder.OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetOrder.OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetOrder.OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetOrder.OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <Button Content="Ret" Command="{Binding EditOrderCommand}"/>
-                </StackPanel>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBox Text="{Binding NewOrder.OrderAccount, Mode=TwoWay}" PlaceholderText="Konto" Margin="0,0,5,0"/>
+                        <DatePicker Date="{Binding NewOrder.OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewOrder.OrderDeliveryAddress, Mode=TwoWay}" PlaceholderText="Levering Adresse" Margin="0,0,5,0"/>
+                        <CheckBox IsChecked="{Binding NewOrder.OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <Button Content="Ret" Command="{Binding EditOrderCommand}"/>
+                    </StackPanel>
+                </Grid>
             </PivotItem>
         </Pivot>
     </Grid>
