@@ -15,14 +15,8 @@ namespace OfficeSupplyManagementSystem.Model
         internal Item OrderLineItemItem { get => _orderLineItemItem; set => _orderLineItemItem = value; }
         public int OrderLineItemAmount { get => _orderLineItemAmount; set => _orderLineItemAmount = value; }
 
-        public decimal OrderLineItemSubTotal
-        {
-            get => _orderLineItemSubTotal;
-            //TODO: Fix reference?
-            set => _orderLineItemSubTotal =
-                Convert.ToDecimal(OrderLineItemItem.ItemPrice) *
-                OrderLineItemAmount;
-        }
+        public decimal OrderLineItemSubTotal => _orderLineItemSubTotal =
+            Convert.ToDecimal(OrderLineItemItem.ItemPrice) * OrderLineItemAmount;
 
         public OrderLineItem()
         {
