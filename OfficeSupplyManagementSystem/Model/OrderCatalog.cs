@@ -44,8 +44,15 @@ namespace OfficeSupplyManagementSystem.Model
             }
             else
             {
-                //TODO add deafault orders to the collection for testing purposes
-                OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime(), "Jensen", "Test Status"));
+                //TODO add default orders to the collection for testing purposes
+                //OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime(), "Jensen", "Test Status"));
+                OrderList.Add(new Order("bjarne bjarnesen",DateTime.Now, "bjarnevej 123, 1234 bjarnby",true ,
+                    new ObservableCollection<OrderLineItem>()
+                    {
+                        new OrderLineItem(ItemCatalog.Instance.ItemList[0], 20),
+                        new OrderLineItem(ItemCatalog.Instance.ItemList[1], 40),
+                        new OrderLineItem(ItemCatalog.Instance.ItemList[2], 60)
+                    }));
 
                 SaveFile();
             }
