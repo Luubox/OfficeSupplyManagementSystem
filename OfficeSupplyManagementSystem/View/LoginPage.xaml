@@ -23,7 +23,7 @@
             <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn" 
                      Text="{Binding TempUser.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                      Width="200" Padding="5"/>
-            <PasswordBox Name="PasswordBox"  PlaceholderText="Password" 
+            <PasswordBox Name="PasswordBox"  PlaceholderText="Password" KeyDown="PasswordBox_OnKeyUp"
                          Password="{Binding TempUser.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          Width="200" Padding="5"/>
 
