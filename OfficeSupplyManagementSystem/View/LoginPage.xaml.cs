@@ -26,10 +26,5 @@ namespace OfficeSupplyManagementSystem.View
         {
             this.InitializeComponent();
         }
-
-        private void PasswordBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
