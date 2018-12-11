@@ -6,16 +6,44 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.DataContext>
         <viewModel:OrderViewModel></viewModel:OrderViewModel>
     </Page.DataContext>
     <Grid>
-
         <Pivot>
             <PivotItem Header="Ordrekatalog">
                 <StackPanel>
+                    <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding OrderCatalog.OrderList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
+                        SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetOrder, Mode=TwoWay}" >
+                        <controls:DataGrid.Columns>
+                            <controls:DataGridTextColumn Header="Order Nummer" Binding="{Binding OrderNumber}"/>
+                            <controls:DataGridTextColumn Header="Order Type" Binding="{Binding OrderType}"/>
+                            <controls:DataGridTextColumn Header="Total Pris" Binding="{Binding OrderTotalPrice}"/>
+                            <controls:DataGridTextColumn Header="Addresse" Binding="{Binding OrderAddress}"/>
+                            <controls:DataGridTextColumn Header="Dato" Binding="{Binding OrderDate}"/>
+                            <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}"/>
+                            <controls:DataGridTemplateColumn Width="Auto">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
+                        </controls:DataGrid.Columns>
+                    </controls:DataGrid>
+                    <!--#region 1. Iteration-->
+                    <!--
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Nummer"/>
+                        <Button Content="Type"/>
+                        <Button Content="Total Pris"/>
+                        <Button Content="Addresse"/>
+                        <Button Content="Dato"/>
+                        <Button Content="Konto"/>
+                    </StackPanel>
                     <ListView ItemsSource="{Binding OrderCatalog.OrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -34,6 +62,8 @@
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
                     </StackPanel>
+                    -->
+                    <!--#endregion-->
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny order">
@@ -54,7 +84,6 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="Ændre order">
-
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
