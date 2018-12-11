@@ -51,12 +51,12 @@ namespace OfficeSupplyManagementSystem.ViewModel
 
         }
 
-        private void UserLogin()
+        public void UserLogin()
         {
             CheckCredentials();
         }
 
-        private void CheckCredentials()
+        public void CheckCredentials()
         {
             if (TempUser.Username == "admin")
             {
