@@ -29,7 +29,9 @@
                                     <TextBlock Text="{Binding ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
                                     <TextBlock Text="{Binding ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{Binding ResupplyOrderStatus, Mode=TwoWay}" Margin="0,0,5,0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListView.ItemTemplate>
@@ -39,20 +41,31 @@
                     </StackPanel>
                 </StackPanel>
             </PivotItem>
-                <PivotItem Header ="Opret vareindlevering">
-                    <StackPanel Orientation="Vertical">
-                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Indleveringsnummer" Margin="0,0,5,0"/>
-                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
-                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" PlaceholderText="Indleveringsdato" Margin="0,0,5,0"/>
-                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal vare" Margin="0,0,5,0"/>
-                        <Button Content="Ny vareindlevering" Command="{Binding CreateResupplyOrderCommand}"/>
-                    </StackPanel>
-                </PivotItem>
+            <PivotItem Header ="Opret vareindlevering">
+                <StackPanel Orientation="Vertical">
+                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Indleveringsnummer" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
+                    <TextBlock Text=""/>
+                    <TextBlock Text="Vareleveringsdato"/>
+                    <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBlock Text="Forventet vareleveringsdato"/>
+                    <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBlock Text=""/>
+
+                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal vare" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderStatus, Mode=TwoWay}"/>
+                    <Button Content="Ny vareindlevering" Command="{Binding CreateResupplyOrderCommand}"/>
+                </StackPanel>
+            </PivotItem>
             <PivotItem Header ="Revider tidligere vareindlevering">
                 <StackPanel Orientation="Vertical">
                     <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
+                    <TextBlock Text=""/>
+                    <TextBlock Text="Vareleveringsdato"/>
+                    <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                    <TextBlock Text="Forventet vareleveringsdato"/>
+                    <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
                     <Button Content="Ret vareindlevering" Command="{Binding EditResupplyOrderCommand}"/>
                 </StackPanel>
