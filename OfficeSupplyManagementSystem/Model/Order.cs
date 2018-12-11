@@ -18,7 +18,7 @@ namespace OfficeSupplyManagementSystem.Model
         private ObservableCollection<OrderLineItem> _orderLineItemList = new ObservableCollection<OrderLineItem>();
         private decimal _orderTotalPrice;
         private bool _orderStatus;
-
+          
         public string OrderNumber
         {
             get
