@@ -18,10 +18,9 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// </summary>
         /// <typeparam name="T">Denotes which type the collection consist of</typeparam>
         /// <param name="collectionInput">The collection in question</param>
-        public static async void SaveCollectionAsJsonAsync<T>(T collectionInput, Type typeInput)
+        public static async void SaveCollectionAsJsonAsync<T>(T collectionInput)
         {
-            Debug.WriteLine(typeInput.ToString());
-            string fileName = typeInput.ToString() + ".json";
+            string fileName = collectionInput.GetType().ToString() + ".json";
             string collectionString =
                 JsonConvert.SerializeObject(collectionInput);
             SerializeCollectionFileAsync(collectionString, fileName);
@@ -37,6 +36,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns>Returns a list of input type objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
+            //TODO: Fix load. Den overskriver det eksisterende med default.
             string fileName = typeof(T).ToString() + ".json";
             List<T> collectionList = new List<T>();
 

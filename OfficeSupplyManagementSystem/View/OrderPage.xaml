@@ -25,12 +25,17 @@
                             <controls:DataGridTextColumn Header="Addresse" Binding="{Binding OrderAddress}"/>
                             <controls:DataGridTextColumn Header="Dato" Binding="{Binding OrderDate}"/>
                             <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}"/>
+                            <controls:DataGridTemplateColumn Width="Auto">
+                                <controls:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
+                                    </DataTemplate>
+                                </controls:DataGridTemplateColumn.CellTemplate>
+                            </controls:DataGridTemplateColumn>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
-                    <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
-                </StackPanel>
-                <!--#region 1. Iteration-->
-                <!--
+                    <!--#region 1. Iteration-->
+                    <!--
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Nummer"/>
                         <Button Content="Type"/>
@@ -58,7 +63,8 @@
                         <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
                     </StackPanel>
                     -->
-                <!--#endregion-->
+                    <!--#endregion-->
+                </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny order">
                 <Grid>
@@ -84,10 +90,10 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
-                        <TextBox Text="{Binding TargetOrder.OrderAccount, Mode=TwoWay}" PlaceholderText="Konto" Margin="0,0,5,0"/>
-                        <DatePicker Date="{Binding TargetOrder.OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                        <TextBox Text="{Binding TargetOrder.OrderDeliveryAddress, Mode=TwoWay}" PlaceholderText="Levering Adresse" Margin="0,0,5,0"/>
-                        <CheckBox IsChecked="{Binding TargetOrder.OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewOrder.OrderAccount, Mode=TwoWay}" PlaceholderText="Konto" Margin="0,0,5,0"/>
+                        <DatePicker Date="{Binding NewOrder.OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewOrder.OrderDeliveryAddress, Mode=TwoWay}" PlaceholderText="Levering Adresse" Margin="0,0,5,0"/>
+                        <CheckBox IsChecked="{Binding NewOrder.OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
                         <Button Content="Ret" Command="{Binding EditOrderCommand}"/>
                     </StackPanel>
                 </Grid>
