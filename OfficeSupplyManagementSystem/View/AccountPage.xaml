@@ -26,6 +26,7 @@
                             <controls:DataGridTextColumn Header="Telefonnummer" Binding="{Binding AccountContact}" />
                             <controls:DataGridTextColumn Header="Bankinformationer" Binding="{Binding AccountBankingInfo}" />
                             <controls:DataGridTextColumn Header="Status" Binding="{Binding AccountStatus}" />
+                            <controls:DataGridTextColumn Header="Omsætning" Binding="{Binding AccountRevenue}"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
                     <StackPanel Orientation="Horizontal">
@@ -46,6 +47,7 @@
                     <TextBox Text="{Binding NewAccount.AccountDeliveryAddress, Mode=TwoWay}" PlaceholderText="Telefonnummer"/>
                     <TextBox Text="{Binding NewAccount.AccountBankingInfo, Mode=TwoWay}" PlaceholderText="Konto- og registreringsnummer"/>
                     <TextBox Text="{Binding NewAccount.AccountStatus, Mode=TwoWay}" PlaceholderText="Status"/>
+                    <TextBox Text="{Binding NewAccount.AccountRevenue, Mode=TwoWay}" PlaceholderText="Omsætning"/>
                     <Button Content="Ny" Command="{Binding CreateAccountCommand}"/>
                 </StackPanel>
                 </Grid>
@@ -63,6 +65,7 @@
                     <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}"/>
                     <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}"/>
                     <TextBox Text="{Binding TargetAccount.AccountStatus, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountRevenue, Mode=TwoWay}"/>
                     <Button Content="Ret" Command="{Binding EditAccountCommand}"/>
                 </StackPanel>
                 </Grid>

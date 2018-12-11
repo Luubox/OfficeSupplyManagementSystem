@@ -16,6 +16,7 @@ namespace OfficeSupplyManagementSystem.Model
         private int _accountContact;
         private string _accountBankingInfo;
         private bool _accountStatus;
+        private decimal _accountRevenue;
 
         //public properties (full properties)
         public string AccountNumber { get => _accountNumber; set => _accountNumber = value; } // => lampda expressions
@@ -55,6 +56,8 @@ namespace OfficeSupplyManagementSystem.Model
             }
         }
 
+        public decimal AccountRevenue { get => _accountRevenue; set => _accountRevenue = value; }
+
         //default or empty contructor (takes 0 parameters)
         public Account()
         {
@@ -62,7 +65,7 @@ namespace OfficeSupplyManagementSystem.Model
         }
 
         //constructor (takes 7 parameters of varying types)
-        public Account(string accountNumber, string accountName, int accountCvr, string accountDeliveryAddress, int accountContact, string accountBankingInfo, string accountStatus)
+        public Account(string accountNumber, string accountName, int accountCvr, string accountDeliveryAddress, int accountContact, string accountBankingInfo, string accountStatus, decimal accountRevenue)
         {
             _accountNumber = accountNumber;
             _accountName = accountName;
@@ -71,6 +74,7 @@ namespace OfficeSupplyManagementSystem.Model
             _accountContact = accountContact;
             _accountBankingInfo = accountBankingInfo;
             AccountStatus = accountStatus;
+            _accountRevenue = accountRevenue;
         }
     }
 }
