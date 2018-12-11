@@ -14,6 +14,7 @@
         <viewModel:ItemViewModel/>
     </Page.DataContext>
 
+
     <Grid>
         <Pivot>
             <PivotItem Header="Varekatalog">
@@ -35,8 +36,9 @@
                                 <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount, Mode=TwoWay}" />
                             </controls:DataGrid.Columns>
                         </controls:DataGrid>
-                        <StackPanel Grid.Row="1">
-                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Height="56" Width="56" Grid.Row="1"/>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0"/>
+                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>

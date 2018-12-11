@@ -26,5 +26,7 @@ namespace OfficeSupplyManagementSystem.View
         {
             this.InitializeComponent();
         }
+
+
     }
 }
