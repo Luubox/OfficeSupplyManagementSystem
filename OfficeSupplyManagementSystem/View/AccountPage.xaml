@@ -26,46 +26,12 @@
                             <controls:DataGridTextColumn Header="Telefonnummer" Binding="{Binding AccountContact}" />
                             <controls:DataGridTextColumn Header="Bankinformationer" Binding="{Binding AccountBankingInfo}" />
                             <controls:DataGridTextColumn Header="Status" Binding="{Binding AccountStatus}" />
-                            <controls:DataGridTemplateColumn Width="Auto">
-                                <controls:DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button Content="Slet" Command="{Binding DeleteAccountCommand}"></Button>
-                                    </DataTemplate>
-                                </controls:DataGridTemplateColumn.CellTemplate>
-                            </controls:DataGridTemplateColumn>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
-                        
-                </StackPanel>
-                <!--<StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Kontonummer"/>
-                        <Button Content="Kontonavn"/>
-                        <Button Content="CVR"/>
-                        <Button Content="Leveringsadresse"/>
-                        <Button Content="Telefonnummer"/>
-                        <Button Content="Bankinformationer"/>
-                        <Button Content="Status"/>
-                    </StackPanel>
-                    <ListView ItemsSource="{Binding AccountCatalog.AccountList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetAccount, Mode=TwoWay}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding AccountNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountName, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountCvr, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountContact, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountBankingInfo, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding AccountStatus, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
                     <StackPanel Orientation="Horizontal">
                         <Button Content="Slet" Command="{Binding DeleteAccountCommand}"/>
                     </StackPanel>
-                    </StackPanel> -->
+                </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny konto">
                 <Grid>
@@ -85,15 +51,21 @@
                 </Grid>
             </PivotItem>
             <PivotItem Header="Ændring af konto">
-                <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetAccount.AccountNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetAccount.AccountName, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetAccount.AccountCvr, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetAccount.AccountStatus, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <Button Content="Ret" Command="{Binding EditAccountCommand}"></Button>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                    <TextBox Text="{Binding TargetAccount.AccountNumber, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountName, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountCvr, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}"/>
+                    <TextBox Text="{Binding TargetAccount.AccountStatus, Mode=TwoWay}"/>
+                    <Button Content="Ret" Command="{Binding EditAccountCommand}"/>
                 </StackPanel>
+                </Grid>
             </PivotItem>
         </Pivot>
     </Grid>
