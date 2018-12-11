@@ -32,21 +32,5 @@ namespace OfficeSupplyManagementSystem.View
 
             loginViewModel = new LoginViewModel();
         }
-
-        private void PasswordBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void PasswordBox_OnKeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            Debug.WriteLine(e.Key);
-            if (e.Key.ToString() == "Enter")
-            {
-                Debug.WriteLine(loginViewModel.TempUser.Username);
-                Debug.WriteLine(loginViewModel.TempUser.Password);
-                loginViewModel.CheckCredentials();
-            }
-        }
     }
 }
