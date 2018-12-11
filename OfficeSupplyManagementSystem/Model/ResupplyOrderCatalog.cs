@@ -34,16 +34,16 @@ namespace OfficeSupplyManagementSystem.Model
             }
             else
             {
-                ResupplyOrderList.Add(new ResupplyOrder(452, "Hjem og fix", DateTime.Today, 743));
-                ResupplyOrderList.Add(new ResupplyOrder(453, "T-Hansen", DateTime.Today, 291));
-                ResupplyOrderList.Add(new ResupplyOrder(454, "Ikea", DateTime.Today, 482));
-                ResupplyOrderList.Add(new ResupplyOrder(455, "Wallmart", DateTime.Today, 285));
+                ResupplyOrderList.Add(new ResupplyOrder(452, "Hjem og fix", DateTime.Today, 244, DateTime.Today, true));
+                ResupplyOrderList.Add(new ResupplyOrder(453, "T-Hansen", DateTime.Today, 291, DateTime.Today, true));
+                ResupplyOrderList.Add(new ResupplyOrder(454, "Ikea", DateTime.Today, 482, DateTime.Today, true));
+                ResupplyOrderList.Add(new ResupplyOrder(455, "Wallmart", DateTime.Today, 285, DateTime.Today, true));
             }
         }
 
         public void SaveFile()
         {
-            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<ResupplyOrder>>(ResupplyOrderList);
+            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<ResupplyOrder>>(ResupplyOrderList, typeof(ResupplyOrder));
         }
     }
 }
