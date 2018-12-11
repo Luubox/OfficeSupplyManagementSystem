@@ -29,11 +29,6 @@ namespace OfficeSupplyManagementSystem.View
         public LoginPage()
         {
             this.InitializeComponent();
-<<<<<<< HEAD
-=======
-
-            loginViewModel = new LoginViewModel();
->>>>>>> 14ca1ca1e1fd43fcf7a1ebc7bf6514041ba4d2a3
         }
     }
 }
