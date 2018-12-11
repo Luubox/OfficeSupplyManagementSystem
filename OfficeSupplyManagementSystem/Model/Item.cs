@@ -99,7 +99,6 @@ namespace OfficeSupplyManagementSystem.Model
                 if (value.Contains(',')) value = value.Replace(',', '.');
                 //_itemPrice = (decimal)Converter.ConvertStringToDouble(value);
                 _itemPrice = decimal.Round(Convert.ToDecimal(value), 2, MidpointRounding.AwayFromZero);
-                //TODO: set currentculture how the fuck
             }
         }
         public string ItemInfo { get => _itemInfo; set => _itemInfo = value; }

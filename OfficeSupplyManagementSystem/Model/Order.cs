@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace OfficeSupplyManagementSystem.Model
 {
     class Order
-    {
+    {   
+        //Private Properties
         private string _orderNumber;
         private string _orderAccount;
         private DateTime _orderDate;
