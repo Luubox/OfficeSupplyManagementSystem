@@ -9,7 +9,7 @@ namespace OfficeSupplyManagementSystem.Model
     class OrderLineItem
     {
         //Private fields
-        private Item _orderLineItemItem;
+        private Item _orderLineItemItem = new Item();
         private int _orderLineItemAmount;
         private decimal _orderLineItemSubTotal;
 
