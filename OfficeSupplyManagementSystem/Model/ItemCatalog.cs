@@ -54,6 +54,9 @@ namespace OfficeSupplyManagementSystem.Model
             }
         }
 
+        /// <summary>
+        /// Saves the collection to local folder using the SaveCollectionAsJsonAsync in the PersistencyService class,
+        /// </summary>
         public void SaveFile()
         {
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Item>>(ItemList, typeof(Item));

@@ -13,10 +13,8 @@ using OfficeSupplyManagementSystem.Model;
 
 namespace OfficeSupplyManagementSystem.ViewModel
 {
-    //Class implements INotifyPropertyChanged so as to allow the GUI to update based on changes 
     class OrderViewModel : INotifyPropertyChanged
     {
-        //Implements the OrderCatalog class
         public OrderCatalog OrderCatalog { get; set; }
         public  OrderHandler OrderHandler { get; set; }
 
@@ -49,10 +47,8 @@ namespace OfficeSupplyManagementSystem.ViewModel
             }
         }
 
-        //Constructor that takes 0 parameters 
         public OrderViewModel()
         {
-            //Initaites the OrderCatalog by accessing the public Instance property ( singleton instance)
             OrderCatalog = OrderCatalog.Instance;
             OrderHandler = new OrderHandler(this);
 
@@ -65,7 +61,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
             TargetOrder = new Order();
         }
 
-        //default implementation of InotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

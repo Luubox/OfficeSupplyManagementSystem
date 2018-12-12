@@ -11,7 +11,7 @@ namespace OfficeSupplyManagementSystem.Model
 {
     class Item
     {
-        //private properties
+        //Private fields
         private string _itemName;
         private int _itemNumber;
         private string _itemCategory;
@@ -20,6 +20,7 @@ namespace OfficeSupplyManagementSystem.Model
         private decimal _itemPrice;
         private string _itemInfo;
 
+        //A list of string values used as categories for the Item objects
         private ObservableCollection<string> _categoryList = new ObservableCollection<string>()
         {
             "Kalendere",
@@ -64,15 +65,19 @@ namespace OfficeSupplyManagementSystem.Model
             "Rengøring"
         };
 
-        //public properties (full property)
+        //Public properties accessing the private fields
         public string ItemName { get => _itemName; set => _itemName = value; } // => lambda expression
         public string ItemNumber
         {
             get
             {
+                //Returns an empty string if the itemNumber is 0,
+                //When creating a new object this means that the input fields in the xaml code is empty,
+                //and as such shows the placeholder text.
                 if (_itemNumber != 0) return _itemNumber.ToString();
                 else return string.Empty;
             }
+            //Converts the input string to a int, so that it lines up with the private field
             set => _itemNumber = Convert.ToInt32(value);
         }
         public string ItemCategory { get => _itemCategory; set => _itemCategory = value; }
@@ -80,6 +85,7 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                //Again returns an empty string if 0, to facilitate the xaml view
                 if (_itemAmount != 0) return _itemAmount.ToString();
                 else return string.Empty;
             }
@@ -90,16 +96,18 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                //Returns a string formatted with two decimals and whatever the value is infront of the decimal point
+                //or an empty string if the field has no value, to facilitate the xaml view
                 if (_itemPrice != 0) return _itemPrice.ToString("#.00");
                 else return string.Empty;
-                //TODO: ToString(c) fix ?
             }
             set
             {
+                //Checks whether the input string contains a comma, and replaces it with a period.
+                //This is to prevent culture input issues with the underlying code.
                 if (value.Contains(',')) value = value.Replace(',', '.');
-                //_itemPrice = (decimal)Converter.ConvertStringToDouble(value);
+                //Sets the backing field to the string value converted to a decimal with two decimal points
                 _itemPrice = decimal.Round(Convert.ToDecimal(value), 2, MidpointRounding.AwayFromZero);
-                //TODO: set currentculture how the fuck
             }
         }
         public string ItemInfo { get => _itemInfo; set => _itemInfo = value; }
@@ -111,7 +119,7 @@ namespace OfficeSupplyManagementSystem.Model
 
         }
 
-        //constructor (takes 7 parameters of varying types)
+        //constructor (takes a parameter for each backing field in the class definition)
         public Item(string itemName, int itemNumber, string itemCategory, int itemAmount, bool itemStatus,
             int itemPrice, string itemInfo)
         {

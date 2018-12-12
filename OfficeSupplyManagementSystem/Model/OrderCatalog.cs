@@ -11,22 +11,14 @@ namespace OfficeSupplyManagementSystem.Model
 {
     class OrderCatalog
     {
-
-        //collection class that follows the Singleton pattern, meaning there can be only one instance
-
-        //private property of the class, named _instance for clarity 
         private static OrderCatalog _instance = new OrderCatalog();
 
-        //public property of the class
-        public static OrderCatalog Instance { get => _instance; } // => lambda expression
+        public static OrderCatalog Instance { get => _instance; }
 
-        //ObervableCollection of Orders with automatic get; set;
         public ObservableCollection<Order> OrderList { get; set; }
 
-        //constructor that take 0 parameters
         public OrderCatalog()
         {
-            //initiates the ObservableCollection of items
             OrderList = new ObservableCollection<Order>();
             LoadOrderAsync();
         }
@@ -44,8 +36,6 @@ namespace OfficeSupplyManagementSystem.Model
             }
             else
             {
-                //TODO add default orders to the collection for testing purposes
-                //OrderList.Add(new Order(514785, "Sanitation", 250, "gertsvej 12", new DateTime(), "Jensen", "Test Status"));
                 OrderList.Add(new Order("bjarne bjarnesen",DateTime.Now, "bjarnevej 123, 1234 bjarnby",true ,
                     new ObservableCollection<OrderLineItem>()
                     {
@@ -58,6 +48,9 @@ namespace OfficeSupplyManagementSystem.Model
             }
         }
 
+        /// <summary>
+        /// Saves the collection to local folder using the SaveCollectionAsJsonAsync in the PersistencyService class,
+        /// </summary>
         public void SaveFile()
         {
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Order>>(OrderList, typeof(Order));

@@ -16,18 +16,28 @@ namespace OfficeSupplyManagementSystem.Handler
             OrderViewModel = orderViewModel;
         }
 
+        /// <summary>
+        /// Creates a new Order object, adds it to the catalogue and saves to local file
+        /// </summary>
         public void CreateOrder()
         {
             OrderViewModel.OrderCatalog.OrderList.Add(OrderViewModel.NewOrder);
             OrderViewModel.OrderCatalog.SaveFile();
         }
 
+        /// <summary>
+        /// Updates the target Order at TargetIndex in the catalogue and saves to local file
+        /// </summary>
         public void DeleteOrder()
         {
             OrderViewModel.OrderCatalog.OrderList.RemoveAt(OrderViewModel
                 .TargetIndex);
             OrderViewModel.OrderCatalog.SaveFile();
         }
+
+        /// <summary>
+        /// Deletes the target Order at TargetIndex in the catalogue and saves to local file
+        /// </summary>
         public void EditOrder()
         {
             OrderViewModel.OrderCatalog.OrderList[OrderViewModel.TargetIndex] =
