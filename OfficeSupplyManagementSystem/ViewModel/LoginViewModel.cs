@@ -45,19 +45,22 @@ namespace OfficeSupplyManagementSystem.ViewModel
         {
             LoginCommand = new RelayCommand(UserLogin);
             TempUser = new User();
-
-            //temporary default user
-            //User defaultUser = new User("admin", "admin");
-
         }
 
+        /// <summary>
+        /// Attempts to log the user in
+        /// </summary>
         private void UserLogin()
         {
             CheckCredentials();
         }
 
+        /// <summary>
+        /// Checks the users credentials against the stored user date
+        /// </summary>
         private void CheckCredentials()
         {
+            //Only checking against hard coded login details at the moment.
             if (TempUser.Username == "admin")
             {
                 if (TempUser.Password != "admin")
@@ -69,12 +72,10 @@ namespace OfficeSupplyManagementSystem.ViewModel
                     Message = "Login Successful";
                     ((Frame)Window.Current.Content).Navigate(
                         typeof(FrontPage));
-                    //TODO: Redirect delay ?
                 }
             }
             else Message = "Invalid Username";
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

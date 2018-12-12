@@ -22,9 +22,9 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                //Very basic implementation for generating a identifier for each order based on the details of said order
                 _orderNumber = "999-";
                 _orderNumber += _orderType ? "01-" : "00-";
-                //_orderNumber += OrderCatalog.Instance.OrderList.Count;
                 _orderNumber += _orderLineItemList.Count;
                 return _orderNumber;
             }
@@ -38,6 +38,7 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                //calculates the total price for the order based on the number of OrderLineItems and their subtotal
                 foreach (OrderLineItem item in OrderLineItemList)
                 {
                     _orderTotalPrice += item.OrderLineItemSubTotal;
@@ -47,7 +48,10 @@ namespace OfficeSupplyManagementSystem.Model
         }
         public bool OrderStatus { get => _orderStatus; set => _orderStatus = value; }
 
-        public Order(){}
+        public Order()
+        {
+
+        }
 
         public Order(string orderAccount, DateTime orderDate, string orderDeliveryAddress, bool orderType, ObservableCollection<OrderLineItem> orderLineItemList)
         {

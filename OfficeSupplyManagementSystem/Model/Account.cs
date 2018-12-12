@@ -8,7 +8,7 @@ namespace OfficeSupplyManagementSystem.Model
 {
     class Account
     {
-        //private properties
+        //private fields
         private string _accountNumber;
         private string _accountName;
         private int _accountCvr;
@@ -18,8 +18,8 @@ namespace OfficeSupplyManagementSystem.Model
         private bool _accountStatus;
         private decimal _accountRevenue;
 
-        //public properties (full properties)
-        public string AccountNumber { get => _accountNumber; set => _accountNumber = value; } // => lampda expressions
+        //public properties accessing the private fields
+        public string AccountNumber { get => _accountNumber; set => _accountNumber = value; }
         public string AccountName { get => _accountName; set => _accountName = value; }
 
         public string AccountCvr
@@ -40,7 +40,6 @@ namespace OfficeSupplyManagementSystem.Model
             get { return _accountStatus.ToString(); }
             set
             {
-                //TODO: Fix default
                 switch (value.ToLower())
                 {
                     case "true":
@@ -58,13 +57,11 @@ namespace OfficeSupplyManagementSystem.Model
 
         public decimal AccountRevenue { get => _accountRevenue; set => _accountRevenue = value; }
 
-        //default or empty contructor (takes 0 parameters)
         public Account()
         {
 
         }
 
-        //constructor (takes 7 parameters of varying types)
         public Account(string accountNumber, string accountName, int accountCvr, string accountDeliveryAddress, int accountContact, string accountBankingInfo, string accountStatus, decimal accountRevenue)
         {
             _accountNumber = accountNumber;

@@ -26,10 +26,9 @@ namespace OfficeSupplyManagementSystem.View
         {
             this.InitializeComponent();
 
-            //TODO: fiiiiix
             BackButton.Visibility = Visibility.Collapsed;
             ContentFrame.Navigate(typeof(ItemPage));
-            TitleTextBlock.Text = "Vare";
+            TitleTextBlock.Text = "Varer";
             ItemListBox.IsSelected = true;
         }
 
