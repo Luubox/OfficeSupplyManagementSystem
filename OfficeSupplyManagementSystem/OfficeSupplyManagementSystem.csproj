@@ -95,7 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\Converter.cs" />
+    <Compile Include="Common\DateTimeConverter.cs" />
+    <Compile Include="Common\DoubleConverter.cs" />
     <Compile Include="Handler\ItemHandler.cs" />
     <Compile Include="Handler\ResupplyOrderHandler.cs" />
     <Compile Include="Handler\AccountHandler.cs" />
