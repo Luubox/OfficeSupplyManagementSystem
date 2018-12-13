@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace OfficeSupplyManagementSystem.Model
 {
     class Order
-    {
+    {   
+        //Private Properties
         private string _orderNumber;
         private string _orderAccount;
         private DateTime _orderDate;
@@ -17,7 +18,7 @@ namespace OfficeSupplyManagementSystem.Model
         private ObservableCollection<OrderLineItem> _orderLineItemList = new ObservableCollection<OrderLineItem>();
         private decimal _orderTotalPrice;
         private bool _orderStatus;
-
+          
         public string OrderNumber
         {
             get

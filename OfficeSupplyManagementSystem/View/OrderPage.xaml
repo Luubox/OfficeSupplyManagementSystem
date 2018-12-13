@@ -27,7 +27,10 @@
                             <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
-                    <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Button Content="Slet" Command="{Binding DeleteOrderCommand}" Margin="0,0,5,0"/>
+                    <Button Content="Save" Command="{Binding SaveOrderCommand}" Margin="0,0,5,0"/>
+                    </StackPanel>
                 </StackPanel>
                 <!--#region 1. Iteration-->
                 <!--
