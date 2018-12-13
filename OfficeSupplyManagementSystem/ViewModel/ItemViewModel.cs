@@ -25,7 +25,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand DeleteItemCommand { get; set; }
         public ICommand EditItemCommand { get; set; }
         public ICommand SortItemCommand { get; set; }
-        public ICommand SaveItemListCommand { get; set; }
 
         private int _targetIndex;
         public int TargetIndex
@@ -72,7 +71,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
             DeleteItemCommand = new RelayCommand(ItemHandler.DeleteItem);
             EditItemCommand = new RelayCommand(ItemHandler.EditItem);
             SortItemCommand = new RelayCommand(ItemHandler.SortList);
-            SaveItemListCommand = new RelayCommand(ItemCatalog.SaveFile);
 
             NewItem = new Item();
             TargetItem = new Item();

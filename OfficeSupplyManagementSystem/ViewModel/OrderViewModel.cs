@@ -21,7 +21,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateOrderCommand { get; set; }
         public ICommand DeleteOrderCommand { get; set; }
         public ICommand EditOrderCommand { get; set; }
-        public ICommand SaveOrderCommand { get; set; }
 
         public int TargetIndex { get; set; }
 
@@ -55,7 +54,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
             CreateOrderCommand = new RelayCommand(OrderHandler.CreateOrder);
             DeleteOrderCommand = new RelayCommand(OrderHandler.DeleteOrder);
             EditOrderCommand = new RelayCommand(OrderHandler.EditOrder);
-            SaveOrderCommand = new RelayCommand(OrderCatalog.SaveFile);
 
             NewOrder = new Order();
             TargetOrder = new Order();

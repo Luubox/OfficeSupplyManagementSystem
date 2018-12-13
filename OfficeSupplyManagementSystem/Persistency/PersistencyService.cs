@@ -38,6 +38,7 @@ namespace OfficeSupplyManagementSystem.Persistency
         /// <returns>A list of typeInput objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
+            //TODO: Fix load. Den overskriver det eksisterende med default.
             string fileName = typeof(T).ToString() + ".json";
             List<T> collectionList = new List<T>();
 
