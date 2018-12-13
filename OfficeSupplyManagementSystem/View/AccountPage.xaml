@@ -29,8 +29,9 @@
                             <controls:DataGridTextColumn Header="Omsætning" Binding="{Binding AccountRevenue}"/>
                         </controls:DataGrid.Columns>
                     </controls:DataGrid>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Slet" Command="{Binding DeleteAccountCommand}"/>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Button Content="Slet" Command="{Binding DeleteAccountCommand}" Margin="0,0,5,0"/>
+                        <Button Content="Save" Command="{Binding SaveAccountCommand}" Margin="0,0,5,0"/>
                     </StackPanel>
                 </StackPanel>
             </PivotItem>
