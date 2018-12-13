@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -60,6 +61,61 @@ namespace OfficeSupplyManagementSystem.ViewModel
                 OnPropertyChanged();
             }
         }
+
+
+        private ObservableCollection<string> _categoryListtest = new ObservableCollection<string>()
+        {
+            "Kalendere",
+            "Office2Office",
+            "Print",
+            "Arkivering og registrering",
+            "Blokke og protokoller",
+            "Datatilbehør",
+            "Kontorartikler",
+            "Kontormaskiner",
+            "Kontorpapir",
+            "Konvolutter, emballage og forsendelse",
+            "Mærkning og etikettering",
+            "Møbler, inventar og belysning",
+            "Præsentation, AV- og konference",
+            "Rengørings- og hygiejneartikler",
+            "Sikkerhed",
+            "Skoleartikler",
+            "Skriveartikler og korrektionsmidler",
+            "Husholdning",
+            "Kontorartikler",
+            "Kolonial, service og engangsartikler",
+            "Abena børnebleer",
+            "Affaldssystemer",
+            "Aftørringspapir",
+            "Beklædning",
+            "Borddækning",
+            "Børnebleer",
+            "Creme",
+            "Cremer, sæber, desinfektion",
+            "Dispenser til aftørringspapir",
+            "Drikkevarer og konfekture",
+            "Engangs",
+            "Engangs- og cateringartikler",
+            "Engsservie- og cateringartikler",
+            "Fodtøj",
+            "Handsker",
+            "Håndrens",
+            "Personlig hygiejne",
+            "Plastposer og sække",
+            "Reklameartikler",
+            "Rengøring"
+        };
+        public ObservableCollection<string> CategoryListtest
+        {
+            get { return _categoryListtest; }
+            set
+            {
+                _categoryListtest = value; 
+                OnPropertyChanged();
+            }
+        }
+
 
         //Constructor that takes 0 parameters
         public ItemViewModel()
