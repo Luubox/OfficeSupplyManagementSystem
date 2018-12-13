@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,18 @@ namespace OfficeSupplyManagementSystem.Model
         private DateTime _resupplyOrderExpectedDeliveryDate;
         private int _resupplyOrderAmount;
         private bool _resupplyOrderStatus;
+
+        private ObservableCollection<string> _categorySupplierList = new ObservableCollection<string>()
+        {
+            "T-Hansen",
+            "Ikea",
+            "Hjem og Fix",
+            "XL-Byg",
+            "Bog og ide",
+            "Wallmart",
+            "MegaStore",
+            "Matas"
+        };
 
         //Public properties for class
         public int ResupplyOrderNumber
@@ -51,6 +64,8 @@ namespace OfficeSupplyManagementSystem.Model
             get => _resupplyOrderExpectedDeliveryDate;
             set => _resupplyOrderExpectedDeliveryDate = value;
         }
+
+        public ObservableCollection<string> CategorySupplierList { get => _categorySupplierList; }
 
         //Empty constructor
         public ResupplyOrder()
