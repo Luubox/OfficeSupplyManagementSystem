@@ -9,12 +9,12 @@ namespace OfficeSupplyManagementSystem.Model
     class OrderLineItem
     {
         //Private fields
-        private Item _orderLineItemItem = new Item();
+        private Item _orderLineItemItem;
         private int _orderLineItemAmount;
         private decimal _orderLineItemSubTotal;
 
         //Public properties accessing the private fields
-        internal Item OrderLineItemItem { get => _orderLineItemItem; set => _orderLineItemItem = value; }
+        public Item OrderLineItemItem { get => _orderLineItemItem; set => _orderLineItemItem = value; }
         public int OrderLineItemAmount { get => _orderLineItemAmount; set => _orderLineItemAmount = value; }
 
         //TODO: Finde ud af hvorfor den crasher her nogle gange, men ikke altid når OrderPage.xaml bliver initialized
