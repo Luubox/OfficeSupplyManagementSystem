@@ -15,7 +15,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
 {
     class AccountViewModel : INotifyPropertyChanged
     {
-        //implements AccountCatalog class
         public AccountCatalog AccountCatalog { get; set; }
         public AccountHandler AccountHandler { get; set; }
 
@@ -49,10 +48,8 @@ namespace OfficeSupplyManagementSystem.ViewModel
             }
         }
 
-        //Constructor that takes 0 parameters
         public AccountViewModel()
         {
-            //Initiates the AccountCatalog by accessing the public Instance property (singleton instance)
             AccountCatalog = AccountCatalog.Instance;
             AccountHandler = new AccountHandler(this);
 

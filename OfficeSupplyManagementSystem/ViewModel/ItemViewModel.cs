@@ -27,7 +27,6 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand SortItemCommand { get; set; }
         public ICommand SaveItemListCommand { get; set; }
 
-
         private int _targetIndex;
         public int TargetIndex
         {

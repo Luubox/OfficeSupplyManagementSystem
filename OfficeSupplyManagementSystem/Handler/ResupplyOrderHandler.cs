@@ -16,12 +16,18 @@ namespace OfficeSupplyManagementSystem.Handler
             ResupplyOrderViewModel = resupplyOrderViewModel;
         }
 
+        /// <summary>
+        /// Creates a new ResupplyOrder object, adds it to the catalogue and saves to local file
+        /// </summary>
         public void CreateResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.Add(ResupplyOrderViewModel.NewResupplyOrder);
             ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
 
+        /// <summary>
+        /// Updates the target ResupplyOrder at TargetIndex in the catalogue and saves to local file
+        /// </summary>
         public void EditResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList[ResupplyOrderViewModel.TargetIndex] =
@@ -29,6 +35,9 @@ namespace OfficeSupplyManagementSystem.Handler
             ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
 
+        /// <summary>
+        /// Deletes the target ResupplyOrder at TargetIndex in the catalogue and saves to local file
+        /// </summary>
         public void DeleteResupplyOrder()
         {
             ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.RemoveAt(ResupplyOrderViewModel.TargetIndex);

@@ -12,15 +12,15 @@ namespace OfficeSupplyManagementSystem.Persistency
     class PersistencyService
     {
         /// <summary>
-        /// Converts the input type to a string filename.
-        /// Converts the collection to a string using Json.Convert
-        /// Calls SerializeCollectionFileAsync on the collection string and filename string
+        /// Converts the typeInput to a string to be used as a fileName,
+        /// Converts the collectionInput to a string containing the collection via JsonConvert,
+        /// Calls SerializeCollectionFileAsync on the collection string and the filename string.
         /// </summary>
-        /// <typeparam name="T">Denotes which type the collection consist of</typeparam>
-        /// <param name="collectionInput">The collection in question</param>
+        /// <typeparam name="T">The type of collection</typeparam>
+        /// <param name="collectionInput">The name of the collection to be saved</param>
+        /// <param name="typeInput">The type of objects in the collection, to be used as fileName</param>
         public static async void SaveCollectionAsJsonAsync<T>(T collectionInput, Type typeInput)
         {
-            Debug.WriteLine(typeInput.ToString());
             string fileName = typeInput.ToString() + ".json";
             string collectionString =
                 JsonConvert.SerializeObject(collectionInput);
@@ -29,12 +29,13 @@ namespace OfficeSupplyManagementSystem.Persistency
         }
 
         /// <summary>
-        /// Converts the input type to a string filename.
-        /// Calls DeSerializeCollectionFileAsync on the input type as a string filename.
-        /// Converts the result of the method to a list of input type objects, and returns said list.
+        /// Converts the typeInput to a string to be used as a fileName,
+        /// Creates a new empty list of typeInput objects,
+        /// Calls DeSerializeCollectionFileAsync on the filename string,
+        /// Fills the empty list with the result of said method via JsonConvert
         /// </summary>
-        /// <typeparam name="T">Denotes the type of the desired collection</typeparam>
-        /// <returns>Returns a list of input type objects</returns>
+        /// <typeparam name="T">The type of objects to be loaded from the local folder</typeparam>
+        /// <returns>A list of typeInput objects</returns>
         public static async Task<List<T>> LoadCollectionFromJsonAsync<T>()
         {
             string fileName = typeof(T).ToString() + ".json";

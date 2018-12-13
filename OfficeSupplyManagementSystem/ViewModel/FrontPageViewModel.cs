@@ -30,8 +30,9 @@ namespace OfficeSupplyManagementSystem.ViewModel
         {
             ((Frame)Window.Current.Content).Navigate(typeof(ItemPage));
         }
+
         #region Deprecated Code
-        //private void CreatePageGrid() //TODO: Hjæææælp!
+        //private void CreatePageGrid()
         //{
         //    PageGrid = new Grid();
         //    RowDefinition rd1 = new RowDefinition();
