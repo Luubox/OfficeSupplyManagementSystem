@@ -53,7 +53,7 @@ namespace OfficeSupplyManagementSystem.Model
         /// </summary>
         public void SaveFile()
         {
-            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Order>>(OrderList);
+            PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<Order>>(OrderList, typeof(Order));
         }
     }
 }

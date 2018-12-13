@@ -21,6 +21,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateResupplyOrderCommand { get; set; }
         public ICommand DeleteResupplyOrderCommand { get; set; }
         public ICommand EditResupplyOrderCommand { get; set; }
+        public ICommand SaveResupplyOrderCommand { get; set; }
 
         public int TargetIndex { get; set; }
 
@@ -56,6 +57,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
             CreateResupplyOrderCommand = new RelayCommand(ResupplyOrderHandler.CreateResupplyOrder);
             DeleteResupplyOrderCommand = new RelayCommand(ResupplyOrderHandler.DeleteResupplyOrder);
             EditResupplyOrderCommand = new RelayCommand(ResupplyOrderHandler.EditResupplyOrder);
+            SaveResupplyOrderCommand = new RelayCommand(ResupplyOrderCatalog.Instance.SaveFile);
 
             NewResupplyOrder = new ResupplyOrder();
             TargetResupplyOrder = new ResupplyOrder();

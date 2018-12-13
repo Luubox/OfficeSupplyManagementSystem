@@ -21,6 +21,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
         public ICommand CreateAccountCommand { get; set; }
         public ICommand DeleteAccountCommand { get; set; }
         public ICommand EditAccountCommand { get; set; }
+        public ICommand SaveAccountCommand { get; set; }
 
         public int TargetIndex { get; set; }
 
@@ -55,6 +56,7 @@ namespace OfficeSupplyManagementSystem.ViewModel
             CreateAccountCommand = new RelayCommand(AccountHandler.CreateAccount);
             DeleteAccountCommand = new RelayCommand(AccountHandler.DeleteAccount);
             EditAccountCommand = new RelayCommand(AccountHandler.EditAccount);
+            SaveAccountCommand = new RelayCommand(AccountCatalog.SaveFile);
 
             NewAccount = new Account();
             TargetAccount = new Account();
