@@ -41,16 +41,8 @@ namespace OfficeSupplyManagementSystem.Handler
         /// </summary>
         public void EditItem()
         {
-            //TODO: Fix edit in all classes (but start here)
-            //ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
-
-            #region testing new way of editing
-
             ItemViewModel.ItemCatalog.ItemList.Insert(ItemViewModel.TargetIndex, ItemViewModel.TargetItem);
-            ItemViewModel.ItemCatalog.ItemList.RemoveAt(ItemViewModel.TargetIndex + 1);
-
-            #endregion
-
+            ItemViewModel.ItemCatalog.ItemList.RemoveAt(ItemViewModel.TargetIndex);
             ItemViewModel.ItemCatalog.SaveFile();
         }
 
