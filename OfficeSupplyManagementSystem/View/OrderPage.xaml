@@ -36,7 +36,7 @@
                                 <controls:DataGridTextColumn Header="Order Nummer" Binding="{Binding OrderNumber}" />
                                 <controls:DataGridTextColumn Header="Order Type" Binding="{Binding OrderType}" />
                                 <controls:DataGridTextColumn Header="Total Pris" Binding="{Binding OrderTotalPrice}" />
-                                <controls:DataGridTextColumn Header="Addresse" Binding="{Binding OrderAddress}" />
+                                <controls:DataGridTextColumn Header="Addresse" Binding="{Binding OrderDeliveryAddress}" />
                                 <controls:DataGridTextColumn Header="Dato" Binding="{Binding OrderDate}" />
                                 <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}" />
                             </controls:DataGrid.Columns>
