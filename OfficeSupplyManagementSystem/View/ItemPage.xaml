@@ -11,7 +11,8 @@
     xmlns:common="using:OfficeSupplyManagementSystem.Common"
     xmlns:primitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    x:Name="MainPage">
 
     <Page.DataContext>
         <viewModel:ItemViewModel/>
@@ -22,35 +23,45 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-
         </Style>
     </Page.Resources>
 
     <Grid>
         <Pivot>
-            <PivotItem Header="Varekatalog">
-                <StackPanel>
-                    <Grid>
+            <PivotItem Header="Varekatalog" >
+                <StackPanel x:Name="KatalogPanel">
+                    <Grid x:Name="ItemGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
-                            <RowDefinition Height="56"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*" 
-                                   SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}" Grid.Row="0" 
-                                           ColumnHeaderStyle="{StaticResource HeaderStyling}">
+                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}"
+                                           AutoGenerateColumns="False" GridLinesVisibility="All"
+                                           ColumnWidth="*"
+                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
+                                           SelectedItem="{Binding TargetItem, Mode=TwoWay}" Grid.Row="1"
+                                           ColumnHeaderStyle="{StaticResource HeaderStyling}" IsReadOnly="True"
+                                           VerticalScrollBarVisibility="Visible"
+                                           BorderBrush="{StaticResource SystemControlBackgroundAccentBrush}" BorderThickness="10" 
+                                           MaxHeight="850">
                             <controls:DataGrid.Columns>
-                                <!--TODO: Fix headerstyles - Den skal ikke være grå og lille, så kan man ikke se den!-->
-                                <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber, Mode=TwoWay}" />
-                                <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory, Mode=TwoWay}" />
-                                <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName, Mode=TwoWay}" />
-                                <controls:DataGridTextColumn Header="Info" Binding="{Binding ItemInfo, Mode=TwoWay}" />
-                                <controls:DataGridTextColumn Header="Pris" Binding="{Binding ItemPrice, Mode=TwoWay}" />
-                                <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Varenummer"
+                                                                     Binding="{Binding ItemNumber, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Kategori"
+                                                                     Binding="{Binding ItemCategory, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Navn"
+                                                                     Binding="{Binding ItemName, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Info"
+                                                                     Binding="{Binding ItemInfo, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Pris"
+                                                                     Binding="{Binding ItemPrice, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header="Antal"
+                                                                     Binding="{Binding ItemAmount, Mode=TwoWay}" />
                             </controls:DataGrid.Columns>
                         </controls:DataGrid>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal">
-                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0"/>
-                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0"/>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0" />
+                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0" />
                         </StackPanel>
                     </Grid>
                 </StackPanel>
