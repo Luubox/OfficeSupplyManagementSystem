@@ -9,30 +9,42 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
     <Page.DataContext>
-        <viewModel:AccountViewModel></viewModel:AccountViewModel>
+        <viewModel:AccountViewModel/>
     </Page.DataContext>
+    
     <Grid>
         <Pivot>
             <PivotItem Header="Kontooversigt">
                 <StackPanel>
-                    <controls:DataGrid x:Name="DataGrid" ItemsSource="{Binding AccountCatalog.AccountList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
-                                       SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetAccount, Mode=TwoWay}" >
-                        <controls:DataGrid.Columns>
-                            <controls:DataGridTextColumn Header="Kontonummer" Binding="{Binding AccountNumber}" />
-                            <controls:DataGridTextColumn Header="Kontonavn" Binding="{Binding AccountName}" />
-                            <controls:DataGridTextColumn Header="CVR" Binding="{Binding AccountCvr}" />
-                            <controls:DataGridTextColumn Header="Leveringsadresse" Binding="{Binding AccountDeliveryAddress}" />
-                            <controls:DataGridTextColumn Header="Telefonnummer" Binding="{Binding AccountContact}" />
-                            <controls:DataGridTextColumn Header="Bankinformationer" Binding="{Binding AccountBankingInfo}" />
-                            <controls:DataGridTextColumn Header="Status" Binding="{Binding AccountStatus}" />
-                            <controls:DataGridTextColumn Header="Omsætning" Binding="{Binding AccountRevenue}"/>
-                        </controls:DataGrid.Columns>
-                    </controls:DataGrid>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Button Content="Slet" Command="{Binding DeleteAccountCommand}" Margin="0,0,5,0"/>
-                        <Button Content="Save" Command="{Binding SaveAccountCommand}" Margin="0,0,5,0"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="56"/>
+                        </Grid.RowDefinitions>
+                        <controls:DataGrid x:Name="AccountDataGrid" ItemsSource="{Binding AccountCatalog.AccountList}"
+                                           AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
+                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
+                                           SelectedItem="{Binding TargetAccount, Mode=TwoWay}">
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header="Kontonummer" Binding="{Binding AccountNumber}" />
+                                <controls:DataGridTextColumn Header="Kontonavn" Binding="{Binding AccountName}" />
+                                <controls:DataGridTextColumn Header="CVR" Binding="{Binding AccountCvr}" />
+                                <controls:DataGridTextColumn Header="Leveringsadresse"
+                                                             Binding="{Binding AccountDeliveryAddress}" />
+                                <controls:DataGridTextColumn Header="Telefonnummer" Binding="{Binding AccountContact}" />
+                                <controls:DataGridTextColumn Header="Bankinformationer"
+                                                             Binding="{Binding AccountBankingInfo}" />
+                                <controls:DataGridTextColumn Header="Status" Binding="{Binding AccountStatus}" />
+                                <controls:DataGridTextColumn Header="Omsætning" Binding="{Binding AccountRevenue}" />
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteAccountCommand}" Margin="0,0,5,0" />
+                            <Button Content="Save" Command="{Binding SaveAccountCommand}" Margin="0,0,5,0" />
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </PivotItem>
             <PivotItem Header="Opret ny konto">
@@ -43,14 +55,14 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.Column="0">
                         <TextBox Text="{Binding NewAccount.AccountNumber, Mode=TwoWay}" PlaceholderText="Kontonummer"/>
-                    <TextBox Text="{Binding NewAccount.AccountName, Mode=TwoWay}" PlaceholderText="Kontonavn"/>
-                    <TextBox Text="{Binding NewAccount.AccountCvr, Mode=TwoWay}" PlaceholderText="CVR"/>
-                    <TextBox Text="{Binding NewAccount.AccountDeliveryAddress, Mode=TwoWay}" PlaceholderText="Telefonnummer"/>
-                    <TextBox Text="{Binding NewAccount.AccountBankingInfo, Mode=TwoWay}" PlaceholderText="Konto- og registreringsnummer"/>
-                    <TextBox Text="{Binding NewAccount.AccountStatus, Mode=TwoWay}" PlaceholderText="Status"/>
-                    <TextBox Text="{Binding NewAccount.AccountRevenue, Mode=TwoWay}" PlaceholderText="Omsætning"/>
-                    <Button Content="Ny" Command="{Binding CreateAccountCommand}"/>
-                </StackPanel>
+                        <TextBox Text="{Binding NewAccount.AccountName, Mode=TwoWay}" PlaceholderText="Kontonavn"/>
+                        <TextBox Text="{Binding NewAccount.AccountCvr, Mode=TwoWay}" PlaceholderText="CVR"/>
+                        <TextBox Text="{Binding NewAccount.AccountDeliveryAddress, Mode=TwoWay}" PlaceholderText="Telefonnummer"/>
+                        <TextBox Text="{Binding NewAccount.AccountBankingInfo, Mode=TwoWay}" PlaceholderText="Konto- og registreringsnummer"/>
+                        <TextBox Text="{Binding NewAccount.AccountStatus, Mode=TwoWay}" PlaceholderText="Status"/>
+                        <TextBox Text="{Binding NewAccount.AccountRevenue, Mode=TwoWay}" PlaceholderText="Omsætning"/>
+                        <Button Content="Ny" Command="{Binding CreateAccountCommand}"/>
+                    </StackPanel>
                 </Grid>
             </PivotItem>
             <PivotItem Header="Ændring af konto">
@@ -60,15 +72,15 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetAccount.AccountNumber, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountName, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountCvr, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountStatus, Mode=TwoWay}"/>
-                    <TextBox Text="{Binding TargetAccount.AccountRevenue, Mode=TwoWay}"/>
-                    <Button Content="Ret" Command="{Binding EditAccountCommand}"/>
-                </StackPanel>
+                        <TextBox Text="{Binding TargetAccount.AccountNumber, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountName, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountCvr, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountDeliveryAddress, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountBankingInfo, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountStatus, Mode=TwoWay}"/>
+                        <TextBox Text="{Binding TargetAccount.AccountRevenue, Mode=TwoWay}"/>
+                        <Button Content="Ret" Command="{Binding EditAccountCommand}"/>
+                    </StackPanel>
                 </Grid>
             </PivotItem>
         </Pivot>

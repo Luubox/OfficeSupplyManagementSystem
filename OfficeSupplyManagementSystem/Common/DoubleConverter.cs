@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OfficeSupplyManagementSystem.Common
 {
-    class Converter
+    class DoubleConverter
     {
         /// <summary>
         /// Converts the input string to a double

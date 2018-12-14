@@ -6,69 +6,91 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:common="using:OfficeSupplyManagementSystem.Common"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.DataContext>
-        <viewModel:ResupplyOrderViewModel></viewModel:ResupplyOrderViewModel>
-    </Page.DataContext>
-    <Grid>
 
+    <Page.DataContext>
+        <viewModel:ResupplyOrderViewModel/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <common:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverterType" />
+    </Page.Resources>
+
+    <Grid>
         <Pivot>
             <PivotItem Header="Vareindleverings oversigt">
                 <StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Indleveringsnummer"/>
-                        <Button Content="Leverandør"/>
-                        <Button Content="Indleveringsdato"/>
-                        <Button Content="Antal"/>
-                    </StackPanel>
-                    <ListView ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetResupplyOrder, Mode= TwoWay}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding ResupplyOrderSupplier, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding ResupplyOrderStatus, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <StackPanel>
-                        <Button Content="Slet vareindlevering" Command ="{Binding DeleteResupplyOrderCommand}"/>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="56"/>
+                        </Grid.RowDefinitions>
+                        <controls:DataGrid x:Name="ResupplyOrderDataGrid" ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
+                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetResupplyOrder, Mode=TwoWay}" Grid.Row="0" >
+                            <controls:DataGrid.Columns>
+                                <controls:DataGridTextColumn Header ="Leveringsnummer" Binding="{Binding ResupplyOrderNumber, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header ="Leverandør" Binding="{Binding ResupplyOrderSupplier, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header ="Leveringsdato" Binding="{Binding ResupplyOrderDate, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header ="Forventet leveringsdato" Binding="{Binding ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header ="Antal" Binding="{Binding ResupplyOrderAmount, Mode=TwoWay}" />
+                                <controls:DataGridTextColumn Header ="Status" Binding="{Binding ResupplyOrderStatus, Mode=TwoWay}" />
+                            </controls:DataGrid.Columns>
+                        </controls:DataGrid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteResupplyOrderCommand}" Margin="0,0,5,0"/>
+                            <Button Content="Save" Command="{Binding EditResupplyOrderCommand}" Margin="0,0,5,0"/>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </PivotItem>
-            <PivotItem Header ="Opret vareindlevering">
-                <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Indleveringsnummer" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
-                    <TextBlock Text=""/>
-                    <TextBlock Text="Vareleveringsdato"/>
-                    <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBlock Text="Forventet vareleveringsdato"/>
-                    <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBlock Text=""/>
+            <PivotItem Header ="Opret ny varelevering">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Indleveringsnummer" Margin="0,0,5,0"/>
+                        <ComboBox ItemsSource="{Binding NewResupplyOrder.CategorySupplierList}" SelectedItem="{Binding NewResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}"
+                                  PlaceholderText="Leverandør" PlaceholderForeground="{ThemeResource SystemControlBackgroundBaseMediumBrush}" HorizontalAlignment="Stretch">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Text="Vareleveringsdato"/>
+                        <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderDate, Converter={StaticResource DateTimeConverterType}, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="Forventet vareleveringsdato"/>
+                        <DatePicker Date="{Binding NewResupplyOrder.ResupplyOrderExpectedDeliveryDate, Converter={StaticResource DateTimeConverterType},  Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText ="Antal"/>
+                        <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderStatus, Mode=TwoWay}" PlaceholderText ="Status"/>
+                        <Button Content="Ny varelevering" Command="{Binding CreateResupplyOrderCommand}"/>
+                    </StackPanel>
+                </Grid>
 
-                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal vare" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding NewResupplyOrder.ResupplyOrderStatus, Mode=TwoWay}"/>
-                    <Button Content="Ny vareindlevering" Command="{Binding CreateResupplyOrderCommand}"/>
-                </StackPanel>
             </PivotItem>
-            <PivotItem Header ="Revider tidligere vareindlevering">
-                <StackPanel Orientation="Vertical">
-                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør" Margin="0,0,5,0"/>
-                    <TextBlock Text=""/>
-                    <TextBlock Text="Vareleveringsdato"/>
-                    <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBlock Text="Forventet vareleveringsdato"/>
-                    <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderExpectedDeliveryDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" Margin="0,0,5,0"/>
-                    <Button Content="Ret vareindlevering" Command="{Binding EditResupplyOrderCommand}"/>
-                </StackPanel>
+            <PivotItem Header ="Ændre vareindlevering">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderNumber, Mode=TwoWay}" PlaceholderText="Leveringsnummer"/>
+                        <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderSupplier, Mode=TwoWay}" PlaceholderText="Leverandør"/>
+                        <TextBlock Text="Leverinsdato"/>
+                        <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderDate, Converter={StaticResource DateTimeConverterType}, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBlock Text="Forventet leveringdato"/>
+                        <DatePicker Date="{Binding TargetResupplyOrder.ResupplyOrderExpectedDeliveryDate, Converter={StaticResource DateTimeConverterType}, Mode=TwoWay}" Margin="0,0,5,0"/>
+                        <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderAmount, Mode=TwoWay}" PlaceholderText="Antal"/>
+                        <TextBox Text="{Binding TargetResupplyOrder.ResupplyOrderStatus, Mode=TwoWay}" PlaceholderText="Status"/>
+                        <Button Content="Ændre varelevering" Command="{Binding EditResupplyOrderCommand}"/>
+                    </StackPanel>
+                </Grid>
             </PivotItem>
         </Pivot>
     </Grid>
