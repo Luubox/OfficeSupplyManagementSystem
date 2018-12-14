@@ -41,7 +41,8 @@ namespace OfficeSupplyManagementSystem.Handler
         /// </summary>
         public void EditItem()
         {
-            ItemViewModel.ItemCatalog.ItemList[ItemViewModel.TargetIndex] = ItemViewModel.TargetItem;
+            ItemViewModel.ItemCatalog.ItemList.Insert(ItemViewModel.TargetIndex, ItemViewModel.TargetItem);
+            ItemViewModel.ItemCatalog.ItemList.RemoveAt(ItemViewModel.TargetIndex);
             ItemViewModel.ItemCatalog.SaveFile();
         }
 

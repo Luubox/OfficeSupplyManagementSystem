@@ -20,50 +20,55 @@ namespace OfficeSupplyManagementSystem.Model
         private decimal _itemPrice;
         private string _itemInfo;
 
+
+        #region Legacy CategoryList
+
         //A list of string values used as categories for the Item objects
-        private ObservableCollection<string> _categoryList = new ObservableCollection<string>()
-        {
-            "Kalendere",
-            "Office2Office",
-            "Print",
-            "Arkivering og registrering",
-            "Blokke og protokoller",
-            "Datatilbehør",
-            "Kontorartikler",
-            "Kontormaskiner",
-            "Kontorpapir",
-            "Konvolutter, emballage og forsendelse",
-            "Mærkning og etikettering",
-            "Møbler, inventar og belysning",
-            "Præsentation, AV- og konference",
-            "Rengørings- og hygiejneartikler",
-            "Sikkerhed",
-            "Skoleartikler",
-            "Skriveartikler og korrektionsmidler",
-            "Husholdning",
-            "Kontorartikler",
-            "Kolonial, service og engangsartikler",
-            "Abena børnebleer",
-            "Affaldssystemer",
-            "Aftørringspapir",
-            "Beklædning",
-            "Borddækning",
-            "Børnebleer",
-            "Creme",
-            "Cremer, sæber, desinfektion",
-            "Dispenser til aftørringspapir",
-            "Drikkevarer og konfekture",
-            "Engangs",
-            "Engangs- og cateringartikler",
-            "Engsservie- og cateringartikler",
-            "Fodtøj",
-            "Handsker",
-            "Håndrens",
-            "Personlig hygiejne",
-            "Plastposer og sække",
-            "Reklameartikler",
-            "Rengøring"
-        };
+        //private ObservableCollection<string> _categoryList = new ObservableCollection<string>()
+        //{
+        //    "Kalendere",
+        //    "Office2Office",
+        //    "Print",
+        //    "Arkivering og registrering",
+        //    "Blokke og protokoller",
+        //    "Datatilbehør",
+        //    "Kontorartikler",
+        //    "Kontormaskiner",
+        //    "Kontorpapir",
+        //    "Konvolutter, emballage og forsendelse",
+        //    "Mærkning og etikettering",
+        //    "Møbler, inventar og belysning",
+        //    "Præsentation, AV- og konference",
+        //    "Rengørings- og hygiejneartikler",
+        //    "Sikkerhed",
+        //    "Skoleartikler",
+        //    "Skriveartikler og korrektionsmidler",
+        //    "Husholdning",
+        //    "Kontorartikler",
+        //    "Kolonial, service og engangsartikler",
+        //    "Abena børnebleer",
+        //    "Affaldssystemer",
+        //    "Aftørringspapir",
+        //    "Beklædning",
+        //    "Borddækning",
+        //    "Børnebleer",
+        //    "Creme",
+        //    "Cremer, sæber, desinfektion",
+        //    "Dispenser til aftørringspapir",
+        //    "Drikkevarer og konfekture",
+        //    "Engangs",
+        //    "Engangs- og cateringartikler",
+        //    "Engsservie- og cateringartikler",
+        //    "Fodtøj",
+        //    "Handsker",
+        //    "Håndrens",
+        //    "Personlig hygiejne",
+        //    "Plastposer og sække",
+        //    "Reklameartikler",
+        //    "Rengøring"
+        //};
+
+        #endregion
 
         //Public properties accessing the private fields
         public string ItemName { get => _itemName; set => _itemName = value; } // => lambda expression
@@ -111,7 +116,7 @@ namespace OfficeSupplyManagementSystem.Model
             }
         }
         public string ItemInfo { get => _itemInfo; set => _itemInfo = value; }
-        public ObservableCollection<string> CategoryList { get => _categoryList; }
+        //public ObservableCollection<string> CategoryList { get => _categoryList; }
 
         //default or empty constructor (takes 0 parameters)
         public Item()
