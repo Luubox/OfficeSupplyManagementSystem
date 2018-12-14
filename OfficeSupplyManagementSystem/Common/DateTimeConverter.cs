@@ -30,7 +30,7 @@ namespace OfficeSupplyManagementSystem.Common
             }
             catch (Exception ex)
             {
-                return DateTime.MinValue;
+                return DateTime.Now;
             }
         }
     }
