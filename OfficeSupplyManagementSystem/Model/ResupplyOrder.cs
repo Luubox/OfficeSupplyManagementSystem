@@ -17,6 +17,7 @@ namespace OfficeSupplyManagementSystem.Model
         private int _resupplyOrderAmount;
         private bool _resupplyOrderStatus;
 
+        //List of suppliers, to be picked from drop-down menu for CREATING and EDITING
         private ObservableCollection<string> _categorySupplierList = new ObservableCollection<string>()
         {
             "T-Hansen",
