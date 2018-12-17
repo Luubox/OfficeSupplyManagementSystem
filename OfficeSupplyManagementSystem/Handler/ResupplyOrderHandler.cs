@@ -30,8 +30,9 @@ namespace OfficeSupplyManagementSystem.Handler
         /// </summary>
         public void EditResupplyOrder()
         {
-            ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList[ResupplyOrderViewModel.TargetIndex] =
-                ResupplyOrderViewModel.TargetResupplyOrder;
+            ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.Insert(ResupplyOrderViewModel.TargetIndex, 
+                ResupplyOrderViewModel.TargetResupplyOrder);
+            ResupplyOrderViewModel.ResupplyOrderCatalog.ResupplyOrderList.RemoveAt(ResupplyOrderViewModel.TargetIndex);
             ResupplyOrderViewModel.ResupplyOrderCatalog.SaveFile();
         }
 

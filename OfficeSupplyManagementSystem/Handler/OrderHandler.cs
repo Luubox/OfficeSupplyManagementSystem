@@ -40,9 +40,8 @@ namespace OfficeSupplyManagementSystem.Handler
         /// </summary>
         public void EditOrder()
         {
-            //TODO:orderpage crasher her
-            OrderViewModel.OrderCatalog.OrderList[OrderViewModel.TargetIndex] =
-                OrderViewModel.TargetOrder;
+            OrderViewModel.OrderCatalog.OrderList.Insert(OrderViewModel.TargetIndex, OrderViewModel.TargetOrder);
+            OrderViewModel.OrderCatalog.OrderList.RemoveAt(OrderViewModel.TargetIndex);
             OrderViewModel.OrderCatalog.SaveFile();
         }
     }
