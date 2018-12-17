@@ -34,11 +34,12 @@
                                            SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
                             <controls:DataGrid.Columns>
                                 <controls:DataGridTextColumn Header="Order Nummer" Binding="{Binding OrderNumber}" />
-                                <controls:DataGridTextColumn Header="Order Type" Binding="{Binding OrderType}" />
-                                <controls:DataGridTextColumn Header="Total Pris" Binding="{Binding OrderTotalPrice}" />
-                                <controls:DataGridTextColumn Header="Addresse" Binding="{Binding OrderAddress}" />
-                                <controls:DataGridTextColumn Header="Dato" Binding="{Binding OrderDate}" />
                                 <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}" />
+                                <controls:DataGridTextColumn Header="Dato" Binding="{Binding OrderDate}" />
+                                <controls:DataGridTextColumn Header="Leverings Addresse" Binding="{Binding OrderDeliveryAddress}" />
+                                <controls:DataGridTextColumn Header="Order Type" Binding="{Binding OrderType}" />
+                                <controls:DataGridComboBoxColumn Header="Varer" Binding="{Binding OrderLineItemList}" />
+                                <controls:DataGridTextColumn Header="Total Pris" Binding="{Binding OrderTotalPrice}" />
                             </controls:DataGrid.Columns>
                         </controls:DataGrid>
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
