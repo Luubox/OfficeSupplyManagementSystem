@@ -7,11 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
-    xmlns:interop="using:Windows.UI.Xaml.Interop"
     xmlns:common="using:OfficeSupplyManagementSystem.Common"
     xmlns:primitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    x:Name="ItemPageName">
 
     <Page.DataContext>
         <viewModel:ItemViewModel/>
@@ -22,24 +22,32 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-
         </Style>
     </Page.Resources>
 
     <Grid>
         <Pivot>
-            <PivotItem Header="Varekatalog">
-                <StackPanel>
-                    <Grid>
+            <PivotItem Header="Varekatalog" >
+                <StackPanel x:Name="KatalogPanel">
+                    <Grid x:Name="ItemGrid">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
                             <RowDefinition Height="56"/>
+                            <RowDefinition Height="1*" />
+                            <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
-                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*" 
-                                   SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetItem, Mode=TwoWay}" Grid.Row="0" 
-                                           ColumnHeaderStyle="{StaticResource HeaderStyling}">
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0" />
+                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding ElementName=ItemPageName, Path=ActualHeight, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" Grid.Row="2"
+                                           AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
+                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
+                                           SelectedItem="{Binding TargetItem, Mode=TwoWay}"
+                                           ColumnHeaderStyle="{StaticResource HeaderStyling}" IsReadOnly="True"
+                                           VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
+                                           BorderBrush="{StaticResource SystemControlBackgroundAccentBrush}" BorderThickness="1" >
                             <controls:DataGrid.Columns>
-                                <!--TODO: Fix headerstyles - Den skal ikke være grå og lille, så kan man ikke se den!-->
                                 <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber, Mode=TwoWay}" />
                                 <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory, Mode=TwoWay}" />
                                 <controls:DataGridTextColumn Header="Navn" Binding="{Binding ItemName, Mode=TwoWay}" />
@@ -48,10 +56,6 @@
                                 <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount, Mode=TwoWay}" />
                             </controls:DataGrid.Columns>
                         </controls:DataGrid>
-                        <StackPanel Grid.Row="1" Orientation="Horizontal">
-                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0"/>
-                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0"/>
-                        </StackPanel>
                     </Grid>
                 </StackPanel>
             </PivotItem>

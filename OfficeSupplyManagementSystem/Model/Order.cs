@@ -39,6 +39,7 @@ namespace OfficeSupplyManagementSystem.Model
         {
             get
             {
+                _orderTotalPrice = 0;
                 //calculates the total price for the order based on the number of OrderLineItems and their subtotal
                 foreach (OrderLineItem item in OrderLineItemList)
                 {
