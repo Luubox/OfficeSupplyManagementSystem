@@ -47,37 +47,7 @@
                             <Button Content="Save" Command="{Binding SaveOrderCommand}" Margin="0,0,5,0" />
                         </StackPanel></Grid>
                 </StackPanel>
-                <!--#region 1. Iteration-->
-                <!--
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Nummer"/>
-                        <Button Content="Type"/>
-                        <Button Content="Total Pris"/>
-                        <Button Content="Addresse"/>
-                        <Button Content="Dato"/>
-                        <Button Content="Konto"/>
-                    </StackPanel>
-                    <ListView ItemsSource="{Binding OrderCatalog.OrderList}" SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding OrderNumber, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderAccount, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderDate, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderDeliveryAddress, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <TextBlock Text="{Binding OrderType, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                    <ListView ItemsSource="{Binding OrderLineItemList, Mode=TwoWay}"></ListView>
-                                    <TextBlock Text="{Binding OrderTotalPrice, Mode=TwoWay}" Margin="0,0,5,0"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Content="Slet" Command="{Binding DeleteOrderCommand}"/>
-                    </StackPanel>
-                    -->
-                <!--#endregion-->
-            </PivotItem>
+              </PivotItem>
             <PivotItem Header="Opret ny order">
                 <Grid>
                     <Grid.ColumnDefinitions>

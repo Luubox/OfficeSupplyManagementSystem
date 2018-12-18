@@ -35,11 +35,13 @@ namespace OfficeSupplyManagementSystem.Handler
         }
 
         /// <summary>
-        /// Deteles the target Account at TargetIndex in the catalogue and saves to local file
+        /// Deletes the target Account at TargetIndex in the catalogue and saves to local file
         /// </summary>
         public void EditAccount()
         {
-            AccountViewModel.AccountCatalog.AccountList[AccountViewModel.TargetIndex] = AccountViewModel.TargetAccount;
+           AccountViewModel.AccountCatalog.AccountList.Insert(AccountViewModel.TargetIndex, 
+               AccountViewModel.TargetAccount);
+            AccountViewModel.AccountCatalog.AccountList.RemoveAt(AccountViewModel.TargetIndex);
             AccountViewModel.AccountCatalog.SaveFile();
         }
     }

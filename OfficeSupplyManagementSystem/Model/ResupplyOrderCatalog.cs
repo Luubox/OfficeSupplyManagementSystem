@@ -22,6 +22,7 @@ namespace OfficeSupplyManagementSystem.Model
             LoadResupplyOrdersAsync();
         }
 
+        //Method for to get the local saved file of ResupplyOrders, if not load list.
         public async void LoadResupplyOrdersAsync()
         {
             var resupplyOrders = await PersistencyService.LoadCollectionFromJsonAsync<ResupplyOrder>();
@@ -41,6 +42,7 @@ namespace OfficeSupplyManagementSystem.Model
             }
         }
 
+        //saving to local file
         public void SaveFile()
         {
             PersistencyService.SaveCollectionAsJsonAsync<ObservableCollection<ResupplyOrder>>(ResupplyOrderList, typeof(ResupplyOrder));

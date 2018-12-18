@@ -71,7 +71,11 @@
             </SplitView.Pane>
 
             <SplitView.Content>
-                <Frame Name="ContentFrame"/>
+
+                <ScrollViewer>
+                    <Frame Name="ContentFrame" />
+                </ScrollViewer>
+
             </SplitView.Content>
             
         </SplitView>

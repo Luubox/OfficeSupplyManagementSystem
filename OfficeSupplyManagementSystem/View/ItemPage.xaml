@@ -31,16 +31,10 @@
                 <StackPanel x:Name="KatalogPanel">
                     <Grid x:Name="ItemGrid">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
                             <RowDefinition Height="56"/>
-                            <RowDefinition Height="1*" />
-                            <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0" Orientation="Horizontal">
-                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0" />
-                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0" />
-                            <TextBlock Text="{Binding ElementName=ItemPageName, Path=ActualHeight, Mode=TwoWay}" VerticalAlignment="Center"/>
-                        </StackPanel>
-                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" Grid.Row="2"
+                        <controls:DataGrid x:Name="ItemDataGrid" ItemsSource="{Binding ItemCatalog.ItemList}" Grid.Row="0"
                                            AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
                                            SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
                                            SelectedItem="{Binding TargetItem, Mode=TwoWay}"
@@ -56,6 +50,11 @@
                                 <controls:DataGridTextColumn Header="Antal" Binding="{Binding ItemAmount, Mode=TwoWay}" />
                             </controls:DataGrid.Columns>
                         </controls:DataGrid>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0" />
+                            <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding ElementName=ItemPageName, Path=ActualHeight, Mode=TwoWay}" VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Grid>
                 </StackPanel>
             </PivotItem>
