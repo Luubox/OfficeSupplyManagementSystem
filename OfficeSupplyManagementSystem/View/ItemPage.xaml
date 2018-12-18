@@ -28,7 +28,7 @@
     <Grid>
         <Pivot>
             <PivotItem Header="Varekatalog" >
-                <StackPanel x:Name="KatalogPanel">
+                <ScrollViewer>
                     <Grid x:Name="ItemGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -38,9 +38,7 @@
                                            AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
                                            SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
                                            SelectedItem="{Binding TargetItem, Mode=TwoWay}"
-                                           ColumnHeaderStyle="{StaticResource HeaderStyling}" IsReadOnly="True"
-                                           VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"
-                                           BorderBrush="{StaticResource SystemControlBackgroundAccentBrush}" BorderThickness="1" >
+                                           ColumnHeaderStyle="{StaticResource HeaderStyling}" IsReadOnly="True">
                             <controls:DataGrid.Columns>
                                 <controls:DataGridTextColumn Header="Varenummer" Binding="{Binding ItemNumber, Mode=TwoWay}" />
                                 <controls:DataGridTextColumn Header="Kategori" Binding="{Binding ItemCategory, Mode=TwoWay}" />
@@ -53,10 +51,9 @@
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
                             <Button Content="Slet" Command="{Binding DeleteItemCommand}" Margin="0,0,5,0" />
                             <Button Content="Save" Command="{Binding SaveItemListCommand}" Margin="0,0,5,0" />
-                            <TextBlock Text="{Binding ElementName=ItemPageName, Path=ActualHeight, Mode=TwoWay}" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
-                </StackPanel>
+                </ScrollViewer>
             </PivotItem>
             <!--#region 1. iteration-->
             <PivotItem Header="Første Iteration">

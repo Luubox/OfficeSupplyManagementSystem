@@ -21,6 +21,7 @@
                 <TextBlock Text="Office" FontSize="50" Margin="0,0,0,0"/>
             </StackPanel>
 
+            <!--TODO: Succesfull grøn (Y)-->
             <TextBlock Name="MessageBox" Text="{Binding Message}" HorizontalAlignment="Center" Foreground="red"/>
 
             <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn" 
