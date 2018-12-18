@@ -8,6 +8,7 @@
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:common="using:OfficeSupplyManagementSystem.Common"
+    xmlns:primitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,7 +18,14 @@
 
     <Page.Resources>
         <common:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverterType" />
+        <Style x:Key="HeaderStyling" TargetType="primitives:DataGridColumnHeader">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+        </Style>
     </Page.Resources>
+
+
 
     <Grid>
         <Pivot>
@@ -29,7 +37,8 @@
                             <RowDefinition Height="56"/>
                         </Grid.RowDefinitions>
                         <controls:DataGrid x:Name="ResupplyOrderDataGrid" ItemsSource="{Binding ResupplyOrderCatalog.ResupplyOrderList}" AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
-                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetResupplyOrder, Mode=TwoWay}" Grid.Row="0" >
+                                           SelectedIndex="{Binding TargetIndex, Mode=TwoWay}" SelectedItem="{Binding TargetResupplyOrder, Mode=TwoWay}" Grid.Row="0" 
+                                           ColumnHeaderStyle="{StaticResource HeaderStyling}">
                             <controls:DataGrid.Columns>
                                 <controls:DataGridTextColumn Header ="Leveringsnummer" Binding="{Binding ResupplyOrderNumber, Mode=TwoWay}" />
                                 <controls:DataGridTextColumn Header ="Leverandør" Binding="{Binding ResupplyOrderSupplier, Mode=TwoWay}" />

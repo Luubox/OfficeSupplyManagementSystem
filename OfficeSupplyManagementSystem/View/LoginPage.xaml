@@ -24,14 +24,14 @@
             <!--TODO: Succesfull grøn (Y)-->
             <TextBlock Name="MessageBox" Text="{Binding Message}" HorizontalAlignment="Center" Foreground="red"/>
 
-            <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn" 
+            <TextBox Name="UsernameTextBox" PlaceholderText="Brugernavn (admin)" 
                      Text="{Binding TempUser.Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                      Width="200" Padding="5"/>
-            <PasswordBox Name="PasswordBox"  PlaceholderText="Password" 
+            <PasswordBox Name="PasswordBox"  PlaceholderText="Password (admin)" 
                          Password="{Binding TempUser.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                          Width="200" Padding="5"/>
 
-            <Button Name="LoginButton" Content="Login" Command="{Binding LoginCommand}" 
+            <Button Name="LoginButton" Content="Login (skal klikkes)" Command="{Binding LoginCommand}" 
                     HorizontalAlignment="Center" Padding="10,5,10,5" Margin="0,10,0,0"/>
         </StackPanel>
     </Grid>

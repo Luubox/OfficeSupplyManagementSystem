@@ -8,6 +8,7 @@
     xmlns:viewModel="using:OfficeSupplyManagementSystem.ViewModel"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:common="using:OfficeSupplyManagementSystem.Common"
+    xmlns:primitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,6 +18,11 @@
 
     <Page.Resources>
         <common:DateTimeToDateTimeOffsetConverter x:Key="DateTimeConverterType" />
+        <Style x:Key="HeaderStyling" TargetType="primitives:DataGridColumnHeader">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+        </Style>
     </Page.Resources>
 
     <Grid>
@@ -31,7 +37,8 @@
                         <controls:DataGrid x:Name="OrderDataGrid" ItemsSource="{Binding OrderCatalog.OrderList}"
                                            AutoGenerateColumns="False" GridLinesVisibility="All" ColumnWidth="*"
                                            SelectedIndex="{Binding TargetIndex, Mode=TwoWay}"
-                                           SelectedItem="{Binding TargetOrder, Mode=TwoWay}">
+                                           SelectedItem="{Binding TargetOrder, Mode=TwoWay}"
+                                           ColumnHeaderStyle="{StaticResource HeaderStyling}">
                             <controls:DataGrid.Columns>
                                 <controls:DataGridTextColumn Header="Order Nummer" Binding="{Binding OrderNumber}" />
                                 <controls:DataGridTextColumn Header="Konto" Binding="{Binding OrderAccount}" />
@@ -45,9 +52,10 @@
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
                             <Button Content="Slet" Command="{Binding DeleteOrderCommand}" Margin="0,0,5,0" />
                             <Button Content="Save" Command="{Binding SaveOrderCommand}" Margin="0,0,5,0" />
-                        </StackPanel></Grid>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
-              </PivotItem>
+            </PivotItem>
             <PivotItem Header="Opret ny order">
                 <Grid>
                     <Grid.ColumnDefinitions>
